@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GGIM — Global Inflation Monitor</title>
+<meta name="robots" content="noindex, nofollow">
+</head>
+<body>
+<div id="root">Loading...</div>
+<script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
+<script src="https://unpkg.com/@babel/standalone@7.24.0/babel.min.js"></script>
+<script>
+window.onerror = function(msg, url, line, col, error) {
+  document.getElementById('root').textContent = 'ERROR: ' + msg + ' (line ' + line + ')';
+  return true;
+};
+</script>
+<script type="text/babel">
+try {
+const { useState, useEffect, useMemo } = React;
+
+const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul"];
+const MONTH_KEYS=["2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07"];
+const D={"Australia":[
+[0,"All groups CPI",1000.0,[3.8,3.7,4.6,4.2,4.0,3.8,3.5]],
+[1,"Food and non-alcoholic beverages",174.1,[3.1,3.1,3.1,2.8,3.3,3.3,3.2]],
+[2,"Dairy and related products",10.9,[2.6,2.7,2.5,2.3,5.2,6.3,6.6]],
+[3,"Milk",4.4,[3.9,3.7,4.0,4.0,9.2,8.9,9.5]],
+[3,"Cheese",3.3,[0.2,-0.1,-1.3,-1.4,0.1,2.1,2.4]],
+[3,"Ice cream and other dairy products",3.2,[3.5,4.6,4.7,4.2,5.3,7.5,7.4]],
+[2,"Bread and cereal products",14.9,[0.9,1.0,0.6,0.7,1.5,2.3,1.3]],
+[3,"Bread",5.9,[0.5,0.7,0.9,1.1,2.1,2.7,2.6]],
+[3,"Cakes and biscuits",6.3,[1.8,1.2,0.5,0.1,1.3,1.9,0.3]],
+[3,"Breakfast cereals",1.0,[2.4,4.4,5.1,3.7,3.5,4.7,3.4]],
+[3,"Other cereal products",1.7,[-1.4,-0.6,-2.7,-0.2,-0.7,1.6,-0.5]],
+[2,"Meat and seafoods",21.4,[3.9,4.5,4.8,5.0,5.4,5.4,5.6]],
+[3,"Beef and veal",4.7,[11.2,13.5,11.8,11.9,13.3,11.9,12.6]],
+[3,"Lamb and goat",2.7,[10.5,12.9,15.5,14.6,14.8,14.9,14.3]],
+[3,"Pork",2.6,[0.5,0.5,-0.1,1.7,1.3,2.5,1.3]],
+[3,"Poultry",4.1,[-1.1,-0.6,0.2,1.0,1.0,2.0,1.4]],
+[3,"Other meats",3.9,[1.9,0.9,1.6,1.7,2.4,2.7,3.2]],
+[3,"Fish and other seafood",3.6,[1.9,1.5,1.8,1.4,1.2,0.2,1.9]],
+[2,"Meals out and take away foods",71.7,[3.9,3.7,3.9,3.7,4.0,4.0,4.5]],
+[3,"Restaurant meals",39.6,[3.8,3.6,3.6,3.5,3.9,3.7,4.7]],
+[3,"Take away and fast foods",32.1,[4.1,3.9,4.2,4.0,4.1,4.3,4.2]],
+[2,"Fruit and vegetables",20.7,[1.4,1.9,1.8,0.1,2.0,0.7,-0.9]],
+[3,"Fruit",9.6,[0.7,3.7,4.3,-2.0,4.2,6.9,3.1]],
+[3,"Vegetables",11.1,[2.0,0.5,-0.2,1.9,0.2,-4.2,-4.1]],
+[2,"Food products n.e.c.",22.2,[2.9,3.1,2.9,2.2,1.6,1.3,0.9]],
+[3,"Food additives and condiments",3.0,[1.4,0.8,0.7,1.4,1.5,1.2,0.7]],
+[3,"Oils and fats",2.5,[-2.2,-1.2,0.1,-0.2,-0.4,2.3,2.2]],
+[3,"Eggs",1.4,[2.6,3.3,1.8,-3.6,-4.2,-5.4,-5.3]],
+[3,"Jams, honey and spreads",1.2,[3.5,3.1,3.6,3.1,3.5,2.6,3.4]],
+[3,"Other food products n.e.c.",4.9,[1.4,0.3,0.7,1.6,1.1,0.7,0.6]],
+[3,"Snacks and confectionery",9.3,[5.6,6.7,5.7,4.1,3.0,2.2,1.5]],
+[2,"Non-alcoholic beverages",12.3,[3.4,2.0,2.2,2.0,1.5,2.0,2.0]],
+[3,"Coffee, tea and cocoa",2.8,[13.5,11.4,10.7,9.1,7.3,5.1,1.8]],
+[3,"Waters, soft drinks and juices",9.6,[0.6,-0.5,-0.1,0.1,-0.1,1.2,2.0]],
+[1,"Alcohol and tobacco",66.4,[5.0,4.3,4.4,4.3,4.7,4.4,4.5]],
+[2,"Alcoholic beverages",46.0,[2.3,1.4,1.7,1.6,2.2,1.6,1.8]],
+[3,"Beer",20.6,[2.8,1.5,2.3,2.6,2.4,2.6,3.0]],
+[3,"Wine",16.2,[1.1,1.6,0.7,0.2,1.5,0.2,0.0]],
+[3,"Spirits",9.2,[3.3,0.9,2.1,2.1,3.0,2.1,2.5]],
+[2,"Tobacco",20.5,[11.8,11.5,11.2,10.7,10.9,11.2,11.1]],
+[1,"Clothing and footwear",32.8,[5.6,5.0,7.1,5.9,5.0,4.9,4.9]],
+[2,"Garments",19.3,[4.2,3.2,4.3,3.1,2.1,1.5,1.9]],
+[3,"Garments for men",5.1,[2.0,1.8,0.8,-1.5,-0.4,2.0,4.2]],
+[3,"Garments for women",11.0,[4.9,3.1,5.5,5.6,4.1,1.1,1.2]],
+[3,"Garments for infants and children",3.2,[5.6,5.9,5.4,2.2,-0.7,2.3,0.9]],
+[2,"Footwear",4.5,[1.6,0.6,2.4,1.1,1.6,0.0,2.2]],
+[3,"Footwear for men",1.1,[1.8,-1.1,1.7,-1.4,3.4,0.1,-0.2]],
+[3,"Footwear for women",2.7,[2.1,1.5,4.2,2.1,0.5,-1.0,3.6]],
+[3,"Footwear for infants and children",0.7,[-0.5,-0.1,-3.0,1.1,3.2,4.1,0.3]],
+[2,"Accessories and clothing services",9.0,[11.4,12.0,17.2,15.9,14.5,15.9,13.7]],
+[3,"Accessories",8.2,[12.0,12.7,18.6,17.0,15.5,17.1,14.6]],
+[3,"Cleaning, repair and hire of clothing and footwear",0.7,[4.6,4.4,3.8,3.9,4.1,3.3,3.8]],
+[1,"Housing",222.2,[6.8,7.2,6.5,6.3,6.5,6.8,5.0]],
+[2,"Rents",66.2,[3.9,3.8,3.7,3.5,3.6,3.6,3.6]],
+[2,"New dwelling purchase by owner-occupiers",75.9,[3.5,3.7,4.5,4.7,5.6,5.8,5.7]],
+[2,"Other housing",35.0,[4.2,4.4,4.2,4.4,4.7,4.9,4.7]],
+[3,"Maintenance and repair of the dwelling",20.3,[2.8,3.1,2.8,3.0,3.7,4.0,3.5]],
+[3,"Property rates and charges",14.7,[6.2,6.2,6.2,6.2,6.2,6.2,6.2]],
+[2,"Utilities",45.1,[20.2,22.4,16.8,15.3,14.5,15.7,6.4]],
+[3,"Electricity",26.1,[32.2,37.0,25.4,22.5,21.1,22.4,6.1]],
+[3,"Gas and other household fuels",9.7,[5.8,5.5,5.7,5.7,4.9,7.2,3.7]],
+[3,"Water and sewerage",9.3,[7.1,7.1,7.1,7.1,7.1,7.1,10.2]],
+[1,"Furnishings, household equipment and services",77.1,[1.4,1.3,1.4,1.2,1.7,1.6,1.6]],
+[2,"Furniture and furnishings",13.9,[-1.1,-1.3,0.3,0.2,1.8,0.3,0.2]],
+[2,"Household textiles",4.6,[0.8,0.2,-2.2,-1.5,-4.7,-0.6,0.8]],
+[2,"Household appliances, utensils and tools",12.4,[-0.4,0.3,-0.1,-1.5,-0.2,-0.4,0.7]],
+[3,"Major household appliances",3.3,[0.5,0.5,-0.5,-0.9,-2.4,-4.9,0.4]],
+[3,"Small electric household appliances",2.4,[-2.2,-0.1,-0.1,-2.0,-1.6,-0.5,0.7]],
+[3,"Glassware, tableware and household utensils",3.3,[1.3,0.8,1.4,-2.5,3.0,2.8,-0.4]],
+[3,"Tools and equipment for house and garden",3.4,[-1.7,0.0,-1.1,-0.7,-0.1,1.1,2.1]],
+[2,"Non-durable household products",20.9,[-0.3,0.0,-0.4,-0.4,0.0,0.0,-0.7]],
+[3,"Cleaning and maintenance products",2.1,[1.2,0.2,0.0,1.0,0.9,0.1,1.0]],
+[3,"Other non-durable household products",11.2,[-1.5,-1.3,-1.2,-1.5,-1.1,-1.1,-0.9]],
+[3,"Personal care products",7.7,[1.2,1.8,0.8,0.9,1.4,1.6,-0.9]],
+[2,"Domestic and household services",25.4,[5.2,4.8,4.9,5.2,5.2,5.0,4.9]],
+[3,"Veterinary and other services for pets",5.1,[5.2,4.9,4.2,3.9,3.6,3.6,3.3]],
+[3,"Pets and related products",4.8,[-0.1,-0.3,-0.8,-1.8,-0.2,-0.6,-0.5]],
+[3,"Child care",8.1,[11.5,9.1,9.1,9.0,9.4,7.6,7.3]],
+[3,"Other household services",7.0,[1.5,2.0,1.8,2.9,2.8,3.4,2.9]],
+[1,"Health",68.7,[3.2,3.2,3.0,4.0,3.8,3.7,3.8]],
+[2,"Medical products, appliances and equipment",10.4,[-1.0,-2.1,-0.5,-0.2,-1.9,-1.8,-1.4]],
+[3,"Therapeutic appliances and equipment",1.4,[0.7,1.9,1.7,0.8,1.6,-1.2,0.9]],
+[3,"Pharmaceutical products",9.0,[-1.3,-2.7,-0.8,-0.3,-2.4,-1.9,-1.8]],
+[2,"Medical, dental and hospital services",58.3,[4.1,4.3,3.7,4.8,4.8,4.8,4.8]],
+[3,"Medical and hospital services",52.3,[4.2,4.4,3.8,4.9,5.0,5.0,4.9]],
+[3,"Dental services",5.9,[3.3,3.4,3.4,3.2,3.3,3.4,3.8]],
+[1,"Transport",110.9,[1.1,-0.2,8.9,6.6,3.3,0.1,1.6]],
+[2,"Private motoring",107.9,[1.2,-0.2,9.2,7.5,4.1,0.4,2.1]],
+[3,"Motor vehicles",33.6,[1.5,1.2,1.1,1.1,0.2,2.2,0.8]],
+[3,"Automotive fuel",31.1,[-2.7,-7.2,24.2,18.6,7.7,-7.3,-0.4]],
+[3,"Other services in respect of motor vehicles",13.4,[5.3,5.3,5.2,5.4,5.2,5.2,6.0]],
+[3,"Spare parts and accessories for motor vehicles",8.5,[-0.4,-1.1,-2.2,-1.1,-0.6,1.1,1.5]],
+[3,"Maintenance and repair of motor vehicles",21.2,[5.1,6.0,6.0,5.7,6.3,6.5,5.9]],
+[2,"Urban transport fares",3.0,[-1.8,-0.9,-1.1,-20.8,-21.0,-11.0,-12.3]],
+[1,"Communication",20.7,[1.4,0.8,1.4,1.5,2.1,2.2,2.5]],
+[2,"Communication",20.7,[1.4,0.8,1.4,1.5,2.1,2.2,2.5]],
+[3,"Postal services",1.1,[6.1,4.3,7.5,12.4,11.6,8.7,6.8]],
+[3,"Telecommunication equipment and services",19.6,[1.1,0.6,1.1,1.0,1.6,1.9,2.3]],
+[1,"Recreation and culture",123.7,[3.7,4.1,2.8,2.5,2.4,3.3,2.6]],
+[2,"Audio, visual and computing equipment and services",19.5,[5.7,5.8,4.0,4.1,3.9,2.9,6.7]],
+[2,"Newspapers, books and stationery",4.7,[3.0,3.5,4.8,2.3,3.4,3.1,2.4]],
+[3,"Books",1.4,[1.1,0.3,1.8,-3.1,-0.4,0.4,2.1]],
+[3,"Newspapers, magazines and stationery",3.4,[3.9,4.8,6.0,4.5,4.9,4.2,2.6]],
+[2,"Domestic holiday travel and accommodation",30.6,[5.6,8.8,2.9,6.5,3.0,3.8,2.1]],
+[2,"International holiday travel and accommodation",28.9,[2.0,1.6,1.3,-3.4,0.7,4.2,0.2]],
+[2,"Other recreation, sport and culture",40.0,[2.4,1.7,3.0,3.0,2.3,2.6,2.9]],
+[3,"Equipment for sports, camping and open-air recreation",4.5,[0.6,-1.4,-0.6,0.7,0.7,0.8,-0.2]],
+[3,"Games, toys and hobbies",5.8,[2.7,2.7,7.0,6.5,2.6,3.0,2.9]],
+[3,"Sports participation",10.9,[4.2,3.3,3.7,4.0,4.0,4.5,5.0]],
+[3,"Hairdressing and personal grooming services",10.5,[3.2,3.5,3.9,3.9,3.8,4.2,4.4]],
+[3,"Other recreational, sporting and cultural services",9.0,[1.0,0.2,3.0,2.8,1.4,2.3,3.6]],
+[1,"Education",48.4,[5.4,4.8,4.8,4.8,4.8,4.8,4.8]],
+[2,"Preschool and primary education",9.6,[6.2,5.4,5.4,5.4,5.4,5.3,5.2]],
+[2,"Secondary education",21.4,[6.3,6.6,6.6,6.6,6.6,6.6,6.6]],
+[2,"Tertiary education",17.4,[3.8,2.3,2.3,2.3,2.3,2.3,2.3]],
+[1,"Insurance and financial services",55.1,[2.4,2.4,2.8,3.0,3.2,3.2,3.1]],
+[2,"Insurance",13.6,[2.2,2.5,3.7,4.5,5.5,4.9,4.2]],
+[2,"Financial services",41.5,[2.4,2.4,2.5,2.5,2.5,2.7,2.8]],
+[3,"Deposit and loan facilities (direct charges)",4.0,[4.1,3.8,2.4,1.8,2.2,1.0,2.2]],
+[3,"Other financial services",37.5,[2.3,2.3,2.6,2.6,2.6,2.9,2.9]],
+]};
+const COUNTRIES=Object.keys(D);
+
+const P={navy:"#1a365d",accent:"#93c5fd",bg:"#f8fafc",card:"#fff",border:"#e2e8f0",text:"#1e293b",textMid:"#475569",textLight:"#94a3b8",gridLine:"#f1f5f9",red:"#dc2626",green:"#16a34a"};
+
+function Row({item,mi,depth,allData,idx}){
+  const[open,setOpen]=useState(depth===0);
+  var lvl=item[0],name=item[1],weight=item[2],vals=item[3];
+  var rate=vals[mi];
+  var isL0=lvl===0,isL1=lvl===1;
+
+  // Find children: items after this one with level > this level, until we hit same or lower level
+  var children=[];
+  for(var j=idx+1;j<allData.length;j++){
+    if(allData[j][0]<=lvl)break;
+    if(allData[j][0]===lvl+1)children.push({item:allData[j],idx:j});
+  }
+  var hasChildren=children.length>0;
+  var barMax=10;
+  var barW=Math.min(Math.abs(rate||0)/barMax*50,50);
+  var padL=depth===0?0:depth===1?20:depth===2?44:64;
+
+  return(
+    <div>
+      <div onClick={()=>hasChildren&&setOpen(!open)} style={{
+        display:"flex",alignItems:"center",padding:isL0?"10px 14px":"7px 14px",paddingLeft:14+padL,
+        borderBottom:isL0?"1px solid "+P.border:"0.5px solid "+P.gridLine,
+        background:isL0?"#f0f9ff":open&&isL1?"#fafbfc":"transparent",
+        cursor:hasChildren?"pointer":"default",
+        transition:"background 0.15s",
+      }}>
+        <div style={{flex:1,fontSize:isL0?15:isL1?14:depth===2?13:12,fontWeight:isL0?700:isL1?500:400,
+          color:isL0?P.navy:isL1?P.text:P.textMid,display:"flex",alignItems:"center",gap:6}}>
+          {hasChildren&&<span style={{color:P.textLight,fontSize:10,display:"inline-block",
+            transform:open?"rotate(90deg)":"rotate(0)",transition:"transform 0.2s",width:14,textAlign:"center"}}>▶</span>}
+          {!hasChildren&&<span style={{width:14}}/>}
+          {name}
+        </div>
+        <div style={{width:65,textAlign:"right",fontSize:12,fontFamily:"'IBM Plex Mono',monospace",color:P.textLight}}>{weight.toFixed(1)}</div>
+        <div style={{width:55,textAlign:"right",fontSize:isL0?16:14,fontFamily:"'IBM Plex Mono',monospace",
+          fontWeight:isL0?700:500,color:rate===null?P.textLight:rate>=0?P.red:P.green}}>
+          {rate!==null?rate.toFixed(1):"–"}
+        </div>
+        <div style={{width:100,height:14,position:"relative",marginLeft:10}}>
+          <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}/>
+          {rate!==null&&rate>=0&&<div style={{position:"absolute",left:"50%",top:0,bottom:0,width:barW+"%",background:"rgba(220,38,38,0.15)",borderRadius:3}}/>}
+          {rate!==null&&rate<0&&<div style={{position:"absolute",right:"50%",top:0,bottom:0,width:barW+"%",background:"rgba(22,163,74,0.15)",borderRadius:3}}/>}
+        </div>
+      </div>
+      {open&&children.map(c=><Row key={c.idx} item={c.item} mi={mi} depth={depth+1} allData={allData} idx={c.idx}/>)}
+    </div>
+  );
+}
+
+function App(){
+  const[country,setCountry]=useState("Australia");
+  const[mi,setMi]=useState(6);
+  const[mob,setMob]=useState(window.innerWidth<768);
+  useEffect(()=>{const h=()=>setMob(window.innerWidth<768);window.addEventListener("resize",h);return()=>window.removeEventListener("resize",h);},[]);
+
+  var data=D[country]||[];
+  var headline=data[0];
+  var headlineRate=headline?headline[3][mi]:null;
+
+  return(
+    <div style={{background:P.bg,fontFamily:"'Libre Franklin',sans-serif",color:P.text,minHeight:"100vh"}}>
+      <style>{`@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap');*{margin:0;padding:0;box-sizing:border-box;}::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:${P.accent};border-radius:10px;}body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;}`}</style>
+
+      <div style={{background:P.navy,padding:mob?"14px 16px":"18px 28px",display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",alignItems:mob?"stretch":"center",gap:mob?12:0}}>
+        <div>
+          <div style={{fontSize:mob?20:26,fontWeight:700,color:"#fff",letterSpacing:"-0.02em"}}>GGIM</div>
+          <div style={{fontSize:11,color:P.accent,fontFamily:"'IBM Plex Mono',monospace",letterSpacing:"0.08em"}}>CPI BASKET DETAIL</div>
+        </div>
+        <select value={country} onChange={e=>setCountry(e.target.value)} style={{
+          padding:"8px 14px",borderRadius:8,border:"1px solid rgba(255,255,255,0.2)",
+          background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:"'IBM Plex Mono',monospace",
+          fontSize:13,cursor:"pointer",appearance:"auto",
+        }}>
+          {COUNTRIES.map(c=><option key={c} value={c} style={{color:"#333"}}>{c}</option>)}
+        </select>
+      </div>
+
+      <div style={{padding:mob?"14px 12px":"20px 28px"}}>
+        {/* Month selector */}
+        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:16,flexWrap:"wrap"}}>
+          <span style={{fontSize:13,fontWeight:600,color:P.text}}>Month:</span>
+          <div style={{display:"flex",gap:mob?3:4}}>
+            {MONTHS.map((m,i)=>(
+              <button key={m} onClick={()=>setMi(i)} style={{
+                padding:mob?"6px 10px":"7px 16px",borderRadius:7,
+                border:i===mi?"2px solid "+P.navy:"1px solid "+P.border,
+                background:i===mi?P.navy:P.card,
+                color:i===mi?"#fff":P.textMid,
+                fontFamily:"'IBM Plex Mono',monospace",fontSize:mob?11:13,
+                fontWeight:i===mi?700:400,cursor:"pointer",transition:"all 0.15s",
+              }}>{m}</button>
+            ))}
+          </div>
+        </div>
+
+        {/* Headline */}
+        <div style={{display:"flex",gap:14,alignItems:"baseline",marginBottom:18,padding:"0 4px"}}>
+          <div style={{fontSize:mob?36:44,fontWeight:700,color:P.navy,fontFamily:"'IBM Plex Mono',monospace"}}>
+            {headlineRate!==null?headlineRate.toFixed(1):"–"}%
+          </div>
+          <div>
+            <div style={{fontSize:13,color:P.textLight}}>Headline CPI (YoY)</div>
+            <div style={{fontSize:12,color:P.textMid,fontFamily:"'IBM Plex Mono',monospace"}}>{MONTHS[mi]} 2026 · {country}</div>
+          </div>
+        </div>
+
+        {/* Table */}
+        <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,overflow:"hidden"}}>
+          <div style={{display:"flex",padding:"8px 14px",background:P.gridLine,borderBottom:"1px solid "+P.border}}>
+            <span style={{flex:1,fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.06em"}}>Category</span>
+            <span style={{width:65,textAlign:"right",fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.06em"}}>Weight</span>
+            <span style={{width:55,textAlign:"right",fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.06em"}}>YoY %</span>
+            <span style={{width:100,textAlign:"center",marginLeft:10,fontSize:9,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>← deflation | inflation →</span>
+          </div>
+          {data.length>0&&<Row item={data[0]} mi={mi} depth={0} allData={data} idx={0}/>}
+        </div>
+
+        <div style={{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",marginTop:16,textAlign:"center"}}>
+          Source: ABS CPI · Saltmarsh Economics © 2026
+        </div>
+      </div>
+    </div>
+  );
+}
+
+ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
+} catch(e) {
+  document.getElementById('root').textContent = 'CATCH: ' + e.message;
+}
+</script>
+</body>
+</html>
