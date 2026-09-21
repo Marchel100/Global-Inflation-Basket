@@ -1,24 +1,16 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>GGIM — Global Inflation Monitor</title>
-</head>
-<body>
-<div id="root">Loading...</div>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>*{margin:0;padding:0;box-sizing:border-box;}</style></head>
+<body><div id="root">Loading...</div>
 <script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
 <script src="https://unpkg.com/prop-types@15.8.1/prop-types.min.js"></script>
 <script src="https://unpkg.com/recharts@2.10.3/umd/Recharts.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.24.0/babel.min.js"></script>
-<script>window.onerror=function(m,u,l){document.getElementById('root').textContent='ERROR: '+m+' (line '+l+')';return true;};</script>
-<script type="text/babel">
-try{
-var useState=React.useState,useEffect=React.useEffect,useMemo=React.useMemo;
-var LineChart=Recharts.LineChart,Line=Recharts.Line,XAxis=Recharts.XAxis,YAxis=Recharts.YAxis,Tooltip=Recharts.Tooltip,ResponsiveContainer=Recharts.ResponsiveContainer,CartesianGrid=Recharts.CartesianGrid,ReferenceLine=Recharts.ReferenceLine;
-const DT=["2005-01","2005-02","2005-03","2005-04","2005-05","2005-06","2005-07","2005-08","2005-09","2005-10","2005-11","2005-12","2006-01","2006-02","2006-03","2006-04","2006-05","2006-06","2006-07","2006-08","2006-09","2006-10","2006-11","2006-12","2007-01","2007-02","2007-03","2007-04","2007-05","2007-06","2007-07","2007-08","2007-09","2007-10","2007-11","2007-12","2008-01","2008-02","2008-03","2008-04","2008-05","2008-06","2008-07","2008-08","2008-09","2008-10","2008-11","2008-12","2009-01","2009-02","2009-03","2009-04","2009-05","2009-06","2009-07","2009-08","2009-09","2009-10","2009-11","2009-12","2010-01","2010-02","2010-03","2010-04","2010-05","2010-06","2010-07","2010-08","2010-09","2010-10","2010-11","2010-12","2011-01","2011-02","2011-03","2011-04","2011-05","2011-06","2011-07","2011-08","2011-09","2011-10","2011-11","2011-12","2012-01","2012-02","2012-03","2012-04","2012-05","2012-06","2012-07","2012-08","2012-09","2012-10","2012-11","2012-12","2013-01","2013-02","2013-03","2013-04","2013-05","2013-06","2013-07","2013-08","2013-09","2013-10","2013-11","2013-12","2014-01","2014-02","2014-03","2014-04","2014-05","2014-06","2014-07","2014-08","2014-09","2014-10","2014-11","2014-12","2015-01","2015-02","2015-03","2015-04","2015-05","2015-06","2015-07","2015-08","2015-09","2015-10","2015-11","2015-12","2016-01","2016-02","2016-03","2016-04","2016-05","2016-06","2016-07","2016-08","2016-09","2016-10","2016-11","2016-12","2017-01","2017-02","2017-03","2017-04","2017-05","2017-06","2017-07","2017-08","2017-09","2017-10","2017-11","2017-12","2018-01","2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11","2018-12","2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07"];
-const CD={
+<script>
+var DT=["2005-01","2005-02","2005-03","2005-04","2005-05","2005-06","2005-07","2005-08","2005-09","2005-10","2005-11","2005-12","2006-01","2006-02","2006-03","2006-04","2006-05","2006-06","2006-07","2006-08","2006-09","2006-10","2006-11","2006-12","2007-01","2007-02","2007-03","2007-04","2007-05","2007-06","2007-07","2007-08","2007-09","2007-10","2007-11","2007-12","2008-01","2008-02","2008-03","2008-04","2008-05","2008-06","2008-07","2008-08","2008-09","2008-10","2008-11","2008-12","2009-01","2009-02","2009-03","2009-04","2009-05","2009-06","2009-07","2009-08","2009-09","2009-10","2009-11","2009-12","2010-01","2010-02","2010-03","2010-04","2010-05","2010-06","2010-07","2010-08","2010-09","2010-10","2010-11","2010-12","2011-01","2011-02","2011-03","2011-04","2011-05","2011-06","2011-07","2011-08","2011-09","2011-10","2011-11","2011-12","2012-01","2012-02","2012-03","2012-04","2012-05","2012-06","2012-07","2012-08","2012-09","2012-10","2012-11","2012-12","2013-01","2013-02","2013-03","2013-04","2013-05","2013-06","2013-07","2013-08","2013-09","2013-10","2013-11","2013-12","2014-01","2014-02","2014-03","2014-04","2014-05","2014-06","2014-07","2014-08","2014-09","2014-10","2014-11","2014-12","2015-01","2015-02","2015-03","2015-04","2015-05","2015-06","2015-07","2015-08","2015-09","2015-10","2015-11","2015-12","2016-01","2016-02","2016-03","2016-04","2016-05","2016-06","2016-07","2016-08","2016-09","2016-10","2016-11","2016-12","2017-01","2017-02","2017-03","2017-04","2017-05","2017-06","2017-07","2017-08","2017-09","2017-10","2017-11","2017-12","2018-01","2018-02","2018-03","2018-04","2018-05","2018-06","2018-07","2018-08","2018-09","2018-10","2018-11","2018-12","2019-01","2019-02","2019-03","2019-04","2019-05","2019-06","2019-07","2019-08","2019-09","2019-10","2019-11","2019-12","2020-01","2020-02","2020-03","2020-04","2020-05","2020-06","2020-07","2020-08","2020-09","2020-10","2020-11","2020-12","2021-01","2021-02","2021-03","2021-04","2021-05","2021-06","2021-07","2021-08","2021-09","2021-10","2021-11","2021-12","2022-01","2022-02","2022-03","2022-04","2022-05","2022-06","2022-07","2022-08","2022-09","2022-10","2022-11","2022-12","2023-01","2023-02","2023-03","2023-04","2023-05","2023-06","2023-07","2023-08","2023-09","2023-10","2023-11","2023-12","2024-01","2024-02","2024-03","2024-04","2024-05","2024-06","2024-07","2024-08","2024-09","2024-10","2024-11","2024-12","2025-01","2025-02","2025-03","2025-04","2025-05","2025-06","2025-07","2025-08","2025-09","2025-11","2025-12","2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07"];
+var CD={
 "United States":[3.0,3.0,3.1,3.5,2.8,2.5,3.2,3.6,4.7,4.3,3.5,3.4,4.0,3.6,3.4,3.5,4.2,4.3,4.1,3.8,2.1,1.3,2.0,2.5,2.1,2.4,2.8,2.6,2.7,2.7,2.4,2.0,2.8,3.5,4.3,4.1,4.3,4.0,4.0,3.9,4.2,5.0,5.6,5.4,4.9,3.7,1.1,0.1,0.0,0.2,-0.4,-0.7,-1.3,-1.4,-2.1,-1.5,-1.3,-0.2,1.8,2.7,2.6,2.1,2.3,2.2,2.0,1.1,1.2,1.1,1.1,1.2,1.1,1.5,1.6,2.1,2.7,3.2,3.6,3.6,3.6,3.8,3.9,3.5,3.4,3.0,2.9,2.9,2.7,2.3,1.7,1.7,1.4,1.7,2.0,2.2,1.8,1.7,1.6,2.0,1.5,1.1,1.4,1.8,2.0,1.5,1.2,1.0,1.2,1.5,1.6,1.1,1.5,2.0,2.1,2.1,2.0,1.7,1.7,1.7,1.3,0.8,-0.1,-0.0,-0.1,-0.2,-0.0,0.1,0.2,0.2,-0.0,0.2,0.5,0.7,1.4,1.0,0.9,1.1,1.0,1.0,0.8,1.1,1.5,1.6,1.7,2.1,2.5,2.7,2.4,2.2,1.9,1.6,1.7,1.9,2.2,2.0,2.2,2.1,2.1,2.2,2.4,2.5,2.8,2.9,2.9,2.7,2.3,2.5,2.2,1.9,1.6,1.5,1.9,2.0,1.8,1.6,1.8,1.7,1.7,1.8,2.1,2.3,2.5,2.3,1.5,0.3,0.1,0.6,1.0,1.3,1.4,1.2,1.2,1.4,1.4,1.7,2.6,4.2,5.0,5.4,5.4,5.3,5.4,6.2,6.8,7.0,7.5,7.9,8.5,8.3,8.6,9.1,8.5,8.3,8.2,7.7,7.1,6.5,6.4,6.0,5.0,4.9,4.0,3.0,3.2,3.7,3.7,3.2,3.1,3.4,3.1,3.2,3.5,3.4,3.3,3.0,2.9,2.5,2.4,2.6,2.7,2.9,3.0,2.8,2.4,2.3,2.4,2.7,2.7,2.9,3.0,2.7,2.7,2.4,2.4,3.3,3.8,4.2,3.5,3.4],
 "Japan":[0.2,0.0,0.0,0.1,0.1,-0.5,-0.2,-0.2,-0.4,-0.8,-0.9,-0.4,-0.1,-0.1,-0.1,-0.1,0.1,0.5,0.2,0.8,0.6,0.4,0.2,0.2,0.0,-0.2,-0.1,0.0,0.0,-0.2,0.0,-0.2,-0.2,0.4,0.6,0.7,0.7,1.1,1.2,0.8,1.3,2.0,2.4,2.1,2.1,1.6,1.1,0.3,0.0,-0.1,-0.3,-0.1,-1.2,-1.7,-2.3,-2.2,-2.2,-2.5,-1.8,-1.6,-0.9,-0.8,-0.7,-0.8,-0.6,-0.7,-0.9,-1.2,-0.9,-0.1,-0.4,-0.4,-0.6,-0.5,-0.6,-0.5,-0.5,-0.4,0.2,0.2,0.0,-0.2,-0.5,-0.2,0.1,0.4,0.6,0.5,0.2,-0.2,-0.5,-0.5,-0.4,-0.5,-0.2,-0.1,-0.4,-0.7,-0.9,-0.7,-0.4,0.2,0.7,0.8,1.1,1.2,1.5,1.5,1.4,1.5,1.5,3.4,3.7,3.7,3.4,3.4,3.3,2.9,2.5,2.5,2.5,2.2,2.3,0.7,0.6,0.3,0.2,0.1,0.0,0.2,0.2,0.1,-0.1,0.2,0.0,-0.2,-0.5,-0.3,-0.5,-0.6,-0.5,0.1,0.6,0.3,0.5,0.2,0.1,0.3,0.5,0.5,0.5,0.7,0.7,0.2,0.6,1.0,1.4,1.5,1.1,0.6,0.7,0.7,0.9,1.2,1.1,1.4,0.8,0.2,0.2,0.2,0.6,0.9,0.7,0.7,0.6,0.3,0.2,0.2,0.6,0.8,0.8,0.6,0.6,0.2,0.2,0.1,0.2,0.0,-0.2,-0.6,-1.0,-1.1,-0.7,-0.6,-0.4,-1.1,-0.8,-0.4,-0.2,-0.3,0.2,0.1,0.6,0.8,0.4,1.0,1.2,2.5,2.5,2.4,2.6,2.9,3.0,3.7,3.8,4.0,4.4,3.2,3.3,3.4,3.2,3.3,3.3,3.2,3.0,3.3,2.9,2.6,2.1,2.8,2.7,2.6,2.8,2.8,2.8,3.1,2.5,2.3,2.9,3.7,4.0,3.6,3.5,3.6,3.6,3.4,3.2,2.9,2.9,2.7,2.0,1.5,1.3,1.4,1.3,1.5,1.7,1.9],
 "Germany":[1.6,1.8,1.8,1.5,1.6,1.8,1.9,1.9,2.6,2.4,2.3,2.2,2.2,2.2,1.8,2.2,2.1,2.1,2.1,1.8,0.9,1.1,1.5,1.4,1.8,1.8,2.0,2.0,2.0,2.0,2.0,2.0,2.6,2.7,3.4,3.1,2.9,3.0,3.3,2.6,3.1,3.3,3.5,3.3,3.0,2.5,1.4,1.1,1.0,1.1,0.3,0.7,-0.1,-0.0,-0.7,-0.1,-0.4,-0.1,0.3,0.9,0.7,0.5,1.2,1.0,1.2,0.9,1.2,1.0,1.3,1.3,1.6,1.8,2.0,2.2,2.3,2.7,2.4,2.4,2.6,2.5,2.8,2.8,2.7,2.3,2.3,2.6,2.4,2.2,2.1,1.9,1.9,2.2,2.1,2.0,1.9,2.0,1.9,1.8,1.8,1.1,1.6,1.9,2.0,1.6,1.5,1.2,1.6,1.3,1.2,1.0,0.8,1.1,0.7,0.9,0.7,0.8,0.8,0.7,0.5,0.1,-0.5,-0.1,0.2,1.1,1.6,1.2,1.2,1.2,0.9,1.2,0.2,0.2,0.4,-0.1,0.1,-0.3,-0.1,0.1,0.4,0.3,0.5,0.7,0.7,1.6,1.8,2.1,1.5,2.0,1.4,1.7,1.7,1.9,1.9,1.5,1.8,1.5,1.4,1.2,1.7,1.3,2.4,2.0,2.2,2.1,2.2,2.6,2.1,1.6,1.7,1.7,1.4,2.1,1.3,1.6,1.2,1.0,0.9,0.8,1.2,1.6,1.7,1.7,1.3,0.8,0.5,0.8,-0.0,-0.1,-0.4,-0.4,-0.7,-0.6,1.6,1.6,2.0,2.0,2.4,2.0,3.1,3.4,4.0,4.6,6.0,5.7,5.1,5.4,7.6,7.9,8.6,8.3,8.4,8.8,11.0,11.6,11.3,9.6,9.2,9.3,7.7,7.5,6.3,6.7,6.5,6.4,4.3,2.9,2.3,3.7,3.0,2.7,2.4,2.4,2.8,2.6,2.6,2.1,1.9,2.4,2.4,2.8,2.8,2.6,2.3,2.2,2.1,2.0,1.9,2.0,2.3,2.5,2.0,2.1,2.0,2.8,2.9,2.7,2.4,2.8],
@@ -50,7 +42,7 @@ const CD={
 "Malta":[1.9,2.5,2.5,1.9,2.5,2.1,1.7,2.5,2.1,2.9,4.3,3.4,2.4,2.3,2.9,3.5,3.5,3.3,3.6,3.0,3.1,1.7,0.9,0.8,1.2,0.8,0.5,-1.1,-1.0,-0.6,-0.2,0.6,0.9,1.5,2.9,3.1,3.8,4.0,4.3,4.1,4.1,4.4,5.6,5.4,4.9,5.7,4.9,5.0,3.1,3.5,3.9,4.0,3.5,2.8,0.8,1.0,0.8,-0.5,-0.1,-0.4,1.3,0.7,0.6,0.8,1.8,1.8,2.5,3.0,2.4,2.2,3.4,4.0,3.3,2.7,2.8,2.4,2.5,3.1,2.4,2.5,2.8,2.6,1.7,1.5,1.7,2.6,2.6,3.8,3.7,4.3,4.2,3.2,2.9,3.2,3.6,2.8,2.4,1.8,1.4,0.9,0.8,0.6,0.9,0.7,0.5,0.6,0.3,1.0,0.9,1.6,1.4,0.5,0.4,0.7,0.6,0.8,0.6,0.7,0.6,0.4,0.8,0.5,0.5,1.4,1.3,1.1,1.2,1.4,1.6,1.6,1.3,1.2,0.8,1.0,1.0,0.8,1.0,1.0,0.9,1.0,0.9,0.5,0.8,1.0,1.5,1.2,1.1,1.1,1.1,1.0,1.2,1.2,1.2,1.5,1.5,1.3,1.2,1.3,1.3,1.4,1.7,2.0,2.1,2.4,2.5,2.1,1.4,1.2,0.9,1.3,1.3,1.7,1.7,1.8,1.8,1.9,1.6,1.4,1.3,1.3,1.4,1.1,1.2,1.1,0.9,1.0,0.7,0.7,0.5,0.6,0.2,0.2,0.2,0.1,0.1,0.1,0.2,0.1,0.3,0.4,0.7,1.4,2.4,2.6,4.1,4.2,4.5,5.4,5.8,6.1,6.8,7.0,7.4,7.4,7.2,7.3,6.8,7.0,7.1,6.4,6.3,6.2,5.6,5.0,4.9,4.2,3.9,3.7,3.7,3.0,2.6,2.4,2.3,2.2,2.3,2.4,2.1,2.4,2.1,1.8,1.8,2.0,2.2,2.6,2.7,2.5,2.5,2.7,2.4,2.4,2.5,2.3,2.3,2.3,2.5,2.1,2.0,2.1],
 "Iceland":[null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,-0.1,-0.6,-0.2,-1.4,-0.8,-2.5,-2.6,-1.9,-2.6,-2.7,-1.2,-2.3,-1.0,-0.7,-1.0,0.3,-0.7,-0.0,1.4,1.8,2.2,1.2,0.9,1.5,2.0,1.9,1.1,1.4,3.3,2.9,2.3,1.7,1.8,2.8,1.9,2.2,0.9,0.6,2.7,1.0,-0.1,0.9,0.3,-0.1,0.9,1.4,1.7,2.6,2.3,3.5,2.8,3.8,3.5,3.3,4.0,3.7,3.7,3.8,4.2,3.9,3.9,4.3,4.4,5.0,5.6,5.4,5.4,6.4,5.5,5.9,6.4,7.0,7.2,8.1,8.8,8.6,8.3,8.0,8.0,7.4,8.3,8.5,7.6,7.4,6.9,5.6,5.3,5.1,4.6,5.2,5.0,5.0,4.3,3.4,3.8,3.5,3.6,3.7,3.4,3.4,3.9,3.5,3.9,3.7,3.7,4.2,3.4,4.0,4.4,4.7,5.0,4.9,4.8,5.1,5.6],
 };
-const CN=Object.keys(CD).sort();
+var CN=Object.keys(CD).sort();
 
 var CATS=["Food","Alcohol & tobacco","Clothing","Housing","Furnishings","Health","Transport","Communication","Recreation","Education","Restaurants","Miscellaneous"];
 var CB={
@@ -83,131 +75,128 @@ var CB={
 "Spain":{"2025-08":[2.3,4.2,-0.8,5.9,0.8,2.0,1.5,-0.1,1.4,2.5,4.4,4.9],"2025-09":[2.4,4.2,-1.3,7.0,0.8,2.0,2.4,-0.0,1.6,2.8,4.4,4.9],"2025-10":[2.4,4.1,-0.4,7.5,0.8,2.2,2.7,0.9,0.9,2.5,4.5,4.9],"2025-11":[2.9,4.3,0.5,5.6,0.9,2.2,2.5,0.9,2.4,2.6,4.6,4.9],"2025-12":[3.0,4.4,0.6,5.6,0.7,2.3,2.1,0.6,1.3,2.6,4.7,4.9],"2026-01":[3.0,4.5,-2.6,2.8,0.8,2.2,0.4,-0.1,3.6,2.6,4.6,4.9],"2026-02":[3.2,4.7,-2.4,1.9,0.9,2.4,0.6,-0.2,2.9,2.6,4.9,3.9],"2026-03":[2.7,4.5,-1.0,3.7,0.9,2.1,6.0,0.2,3.7,2.6,4.8,4.2],"2026-04":[2.6,4.6,5.5,1.8,1.1,2.0,7.0,0.4,1.3,2.6,4.8,4.6],"2026-05":[2.2,3.6,5.2,1.3,1.1,2.1,8.0,0.3,3.6,2.6,5.0,4.8],"2026-06":[1.9,3.0,5.2,4.7,1.2,2.1,5.3,0.2,2.3,2.6,5.3,3.3],"2026-07":[1.6,2.9,3.6,5.7,1.3,1.9,6.4,2.2,1.9,2.5,5.1,3.4]},
 "Sweden":{"2025-08":[4.6,2.1,3.6,10.0,-1.0,2.5,0.5,-1.7,3.1,4.2,3.0,4.2],"2025-09":[3.4,1.9,2.1,9.4,-3.0,2.6,2.0,-1.4,3.2,4.3,4.0,4.4],"2025-10":[3.7,2.0,1.8,9.5,-2.5,2.2,1.3,-3.2,3.1,4.3,4.4,4.4],"2025-11":[2.9,2.7,1.0,5.7,-2.1,2.9,1.9,-3.8,0.2,4.7,3.8,4.1],"2025-12":[3.5,2.9,0.0,5.4,-4.4,2.6,-0.0,-3.5,2.4,5.6,3.7,3.2],"2026-01":[3.4,2.8,0.8,8.1,-2.6,-4.9,-1.0,-2.9,1.4,4.1,3.0,2.1],"2026-02":[2.0,2.4,-0.5,7.8,-3.3,-4.2,-0.6,-3.0,0.2,4.1,3.8,2.1],"2026-03":[0.2,2.3,1.2,4.2,-3.7,-4.6,4.0,-1.9,0.6,3.9,3.2,2.0],"2026-04":[-5.4,2.2,1.0,3.6,-2.0,-5.2,5.7,-2.2,-1.6,3.4,3.9,0.9],"2026-05":[-5.9,2.0,0.3,5.9,-1.4,-5.3,6.7,-1.6,1.4,3.7,2.4,0.7],"2026-06":[-6.6,2.0,-2.3,8.2,-3.3,-4.7,4.0,-1.0,1.9,4.2,2.7,1.4],"2026-07":[-6.8,2.0,0.5,3.9,-0.8,-6.4,0.9,1.4,1.7,-14.7,3.5,1.6]},
 "Switzerland":{"2025-08":[-0.9,0.5,2.1,0.7,-0.7,0.6,-2.7,-0.6,-0.6,2.6,1.8,-0.8],"2025-09":[-1.1,0.1,-0.1,0.7,-0.3,0.6,-1.7,-0.6,0.5,2.6,1.3,-0.8],"2025-10":[-0.9,0.9,-0.4,0.8,-1.5,0.6,-2.2,-0.8,1.1,2.6,1.2,-0.8],"2025-11":[-0.6,1.5,-0.3,0.5,-2.1,0.7,-2.4,0.3,1.0,2.6,0.6,-0.8],"2025-12":[-0.9,1.9,-1.7,0.4,-1.3,0.8,-1.5,0.4,1.6,2.6,1.0,-0.8],"2026-01":[-0.3,1.2,-1.0,0.8,-0.9,0.3,-2.4,0.5,4.6,2.6,-1.1,0.0],"2026-02":[-0.1,1.9,-1.1,0.9,-0.9,0.2,-1.8,-0.0,4.3,2.6,1.0,0.8],"2026-03":[-0.2,2.2,-0.3,1.3,-1.0,0.2,-0.3,0.1,5.0,2.6,-0.6,0.8],"2026-04":[-0.4,0.8,1.0,1.5,-1.7,0.2,0.7,0.4,3.0,2.6,-1.0,0.8],"2026-05":[-0.9,0.5,-0.6,1.6,-0.9,0.0,1.3,-0.0,7.4,2.6,-0.4,2.1],"2026-06":[-0.8,0.6,0.7,1.3,-1.1,0.0,1.5,-0.4,4.5,2.6,-0.5,2.1],"2026-07":[-1.0,0.6,-1.2,1.4,-1.2,-0.0,0.8,-0.3,4.5,2.6,0.0,2.1]},
-"United States":{"2025-08":[55.4,null,-27.5,-8.9,null,15.8,null,null,48.3,0.3,null,3.9],"2025-09":[36.8,null,-104.7,-5.5,null,1.0,null,null,330.2,0.4,null,4.1],"2025-11":[24.2,null,-42.4,-15.4,null,-12.2,null,null,75.8,1.0,null,4.3],"2025-12":[29.0,null,-46.7,-12.3,null,2.4,-27.8,null,100.1,0.4,null,3.8],"2026-01":[14.7,null,39.4,-15.9,null,12.6,-165.9,null,127.5,0.8,null,5.8],"2026-02":[22.3,null,524.7,-14.1,null,27.6,-116.7,null,38.3,0.3,null,6.0],"2026-03":[2.7,null,461.4,-12.4,null,5.8,199.9,null,25.9,0.1,null,4.8],"2026-04":[7.6,null,1161.5,-1.7,null,-3.8,null,null,26.5,-0.0,null,4.7],"2026-05":[11.7,null,null,-9.0,null,-5.3,null,null,63.9,0.9,null,5.2],"2026-06":[4.7,null,null,-15.6,null,-18.3,null,null,55.4,0.1,null,5.0],"2026-07":[0.3,null,null,-19.4,null,-38.7,null,null,25.3,0.6,null,4.6],"2026-08":[-6.7,null,null,-20.2,null,-55.5,13258.8,null,12.0,2.5,null,4.4]},
+"United States":{"2025-08":[3.2,null,0.2,4.0,null,3.4,0.9,null,2.3,0.3,null,3.9],"2025-09":[3.1,null,-0.1,3.9,null,3.3,1.7,null,3.0,0.4,null,4.1],"2025-11":[2.7,null,-2.6,3.7,null,3.1,1.1,null,2.0,1.0,null,4.3],"2025-12":[3.3,null,-1.1,3.9,null,3.2,0.1,null,3.0,0.4,null,3.8],"2026-01":[3.5,null,2.6,4.0,null,3.7,-0.0,null,3.8,0.8,null,5.8],"2026-02":[3.3,null,6.0,3.8,null,3.6,-0.3,null,2.8,0.3,null,6.0],"2026-03":[3.1,null,4.4,3.7,null,3.3,4.6,null,2.2,0.1,null,4.8],"2026-04":[3.2,null,3.0,4.0,null,2.9,8.0,null,2.3,-0.0,null,4.7],"2026-05":[3.3,null,3.7,3.9,null,2.8,9.5,null,2.6,0.9,null,5.2],"2026-06":[3.3,null,3.6,3.8,null,2.5,6.7,null,3.1,0.1,null,5.0],"2026-07":[3.1,null,2.6,3.4,null,2.2,5.9,null,3.0,0.6,null,4.6],"2026-08":[3.1,null,5.9,3.5,null,1.6,6.3,null,2.5,2.5,null,4.4]},
 };
 
 var POP={"United States":0.3161,"Japan":0.1152,"Germany":0.0776,"United Kingdom":0.0644,"France":0.0638,"Italy":0.0548,"Spain":0.0456,"Canada":0.0382,"Netherlands":0.0167,"Belgium":0.011,"Czechia":0.0102,"Portugal":0.0099,"Sweden":0.0098,"Greece":0.0097,"Austria":0.0085,"Switzerland":0.0083,"Denmark":0.0055,"Finland":0.0052,"Norway":0.0052,"Ireland":0.005,"Slovak Republic":0.005,"Croatia":0.0036,"Lithuania":0.0027,"Slovenia":0.002,"Latvia":0.0017,"Estonia":0.0013,"Cyprus":0.0009,"Luxembourg":0.0006,"Malta":0.0005,"Iceland":0.0004};
 
-var P={navy:"#1a365d",bg:"#f8fafc",card:"#fff",border:"#e2e8f0",text:"#1e293b",textMid:"#475569",textLight:"#94a3b8",gridLine:"#f1f5f9",red:"#dc2626",green:"#16a34a",accent:"#93c5fd"};
+var h=React.createElement,useState=React.useState,useEffect=React.useEffect,useMemo=React.useMemo;
+var RC=Recharts;
+var P={navy:"#1a365d",bg:"#f8fafc",card:"#fff",border:"#e2e8f0",text:"#1e293b",mid:"#475569",light:"#94a3b8",grid:"#f1f5f9",red:"#dc2626",green:"#16a34a",accent:"#93c5fd"};
+var MONO="'IBM Plex Mono',monospace";
 var COLORS=["#2563eb","#dc2626","#16a34a","#d97706","#7c3aed","#0891b2"];
-function gv(c,i){var v=CD[c];if(!v)return null;var r=v[i];return r===null?null:parseFloat(r);}
+function gv(c,i){var v=CD[c];if(!v)return null;var r=v[i];return (r===null||r===undefined)?null:r;}
+var GLB=DT.map(function(d,i){var n=0,w=0;CN.forEach(function(c){var r=gv(c,i),p=POP[c];if(r!==null&&p){n+=r*p;w+=p;}});return w>0?Math.round(n/w*10)/10:null;});
+var GLB_LAST=GLB.length-1;while(GLB_LAST>0&&GLB[GLB_LAST]===null)GLB_LAST--;
+var CB_MONTHS=(function(){var s={};Object.keys(CB).forEach(function(c){Object.keys(CB[c]).forEach(function(m){s[m]=1;});});return Object.keys(s).sort();})();
+var TICKS=DT.filter(function(d){var y=parseInt(d.slice(0,4));return d.slice(5)==="01"&&y%2===0;});
+function col(v){return v===null?P.light:(v<0?P.green:P.red);}
+function fmt(v){return v===null?"–":v.toFixed(1)+"%";}
 
-function App(){
-  var sr=useState("compare"),tab=sr[0],setTab=sr[1];
-  var ss=useState(["United States","Germany","Japan","France"]),selected=ss[0],setSelected=ss[1];
-  var sc=useState("United States"),singleCountry=sc[0],setSingleCountry=sc[1];
-  var sm=useState(DT.length-1),rankMonth=sm[0],setRankMonth=sm[1];
-  var smob=useState(window.innerWidth<768),mob=smob[0],setMob=smob[1];
-  useEffect(function(){var h=function(){setMob(window.innerWidth<768)};window.addEventListener("resize",h);return function(){window.removeEventListener("resize",h)};},[]);
+function Card(props){return h("div",{style:{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px",marginTop:props.mt||0}},
+  props.label?h("div",{style:{fontSize:10,color:P.light,fontFamily:MONO,textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:2}},props.label):null,
+  props.title?h("div",{style:{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}},props.title):null,
+  props.children);}
 
-  var compareData=useMemo(function(){var step=mob?6:3;var arr=[];for(var i=0;i<DT.length;i+=step){var row={date:DT[i]};selected.forEach(function(c){row[c]=gv(c,i);});arr.push(row);}return arr;},[selected,mob]);
-  var singleData=useMemo(function(){var step=mob?6:3;var arr=[];for(var i=0;i<DT.length;i+=step){arr.push({date:DT[i],rate:gv(singleCountry,i)});}return arr;},[singleCountry,mob]);
-  var rankData=useMemo(function(){return CN.map(function(c){return{country:c,rate:gv(c,rankMonth)};}).filter(function(d){return d.rate!==null;}).sort(function(a,b){return b.rate-a.rate;});},[rankMonth]);
-  var globalRate=useMemo(function(){var num=0,den=0;CN.forEach(function(c){var r=gv(c,rankMonth);var w=POP[c]||0;if(r!==null&&w>0){num+=r*w;den+=w;}});return den>0?Math.round(num/den*10)/10:null;},[rankMonth]);
+function Big(props){return h("div",{style:{display:"flex",gap:14,alignItems:"baseline",marginBottom:18,flexWrap:"wrap"}},
+  h("div",{style:{fontSize:props.mob?34:44,fontWeight:700,color:col(props.value),fontFamily:MONO}},fmt(props.value)),
+  h("div",null,h("div",{style:{fontSize:13,color:P.light}},props.label),h("div",{style:{fontSize:12,color:P.mid,fontFamily:MONO}},props.sub)));}
 
-  var latestRate=null;var latestDate=null;
-  for(var li=DT.length-1;li>=0;li--){var lv=gv(singleCountry,li);if(lv!==null){latestRate=lv;latestDate=DT[li];break;}}
-
-  function toggleCountry(c){if(selected.indexOf(c)>=0){setSelected(selected.filter(function(x){return x!==c}));}else if(selected.length<6){setSelected(selected.concat([c]));}}
-
-  return(
-    <div style={{background:P.bg,fontFamily:"'Libre Franklin',sans-serif",color:P.text,minHeight:"100vh"}}>
-      <style>{"@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap');*{margin:0;padding:0;box-sizing:border-box;}"}</style>
-
-      <div style={{background:P.navy,padding:mob?"14px 16px":"18px 28px",display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",alignItems:mob?"stretch":"center",gap:mob?10:0}}>
-        <div><div style={{fontSize:mob?22:28,fontWeight:700,color:"#fff"}}>GGIM</div><div style={{fontSize:11,color:P.accent,fontFamily:"'IBM Plex Mono',monospace",letterSpacing:"0.08em"}}>GLOBAL INFLATION MONITOR</div></div>
-        <div style={{display:"flex",gap:mob?4:6,flexWrap:"wrap"}}>
-          {[{id:"compare",label:"Compare"},{id:"single",label:"Country"},{id:"rank",label:"Ranking"}].map(function(t){return(
-            <button key={t.id} onClick={function(){setTab(t.id)}} style={{padding:mob?"8px 14px":"10px 24px",borderRadius:8,border:tab===t.id?"2px solid "+P.accent:"2px solid rgba(255,255,255,0.2)",background:tab===t.id?P.accent:"transparent",color:tab===t.id?P.navy:"#fff",fontFamily:"'IBM Plex Mono',monospace",fontSize:mob?11:14,fontWeight:700,cursor:"pointer",flex:mob?1:"initial",textAlign:"center"}}>{t.label}</button>
-          );})}
-        </div>
-      </div>
-
-      <div style={{padding:mob?"14px 12px":"20px 28px"}}>
-
-        {tab==="compare"&&(<div>
-          <div style={{marginBottom:14}}><div style={{fontSize:13,fontWeight:600,color:P.text,marginBottom:8}}>Select countries (up to 6):</div>
-            <div style={{display:"flex",flexWrap:"wrap",gap:4}}>{CN.map(function(c){var isOn=selected.indexOf(c)>=0;var ci=selected.indexOf(c);return(
-              <button key={c} onClick={function(){toggleCountry(c)}} style={{padding:"4px 10px",borderRadius:6,fontSize:11,fontFamily:"'IBM Plex Mono',monospace",border:"1px solid "+(isOn?COLORS[ci%COLORS.length]:P.border),background:isOn?COLORS[ci%COLORS.length]:"transparent",color:isOn?"#fff":P.textMid,fontWeight:isOn?600:400,cursor:"pointer"}}>{c}</button>
-            );})}</div>
-          </div>
-          <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px"}}>
-            <div style={{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}}>Headline CPI, YoY Inflation (%), 2005-2026</div>
-            <ResponsiveContainer width="100%" height={mob?280:380}>
-              <LineChart data={compareData}><CartesianGrid strokeDasharray="3 3" stroke={P.gridLine}/><XAxis dataKey="date" tick={{fontSize:mob?8:10,fill:P.textLight}} axisLine={false} tickLine={false} interval={mob?11:7}/><YAxis tick={{fontSize:10,fill:P.textLight}} axisLine={false} tickLine={false} tickFormatter={function(v){return v+"%"}}/><ReferenceLine y={0} stroke={P.border} strokeWidth={1}/><Tooltip content={function(props){if(!props.active||!props.payload||!props.payload.length)return null;return React.createElement("div",{style:{background:"#fff",border:"1px solid #e2e8f0",borderRadius:8,padding:"10px 14px",fontSize:12,fontFamily:"monospace"}},React.createElement("div",{style:{fontWeight:600,marginBottom:4,color:P.navy}},props.label),props.payload.filter(function(p){return p.value!=null}).sort(function(a,b){return b.value-a.value}).map(function(p,i){return React.createElement("div",{key:i,style:{display:"flex",alignItems:"center",gap:6,marginTop:2}},React.createElement("span",{style:{width:8,height:8,borderRadius:"50%",background:p.color,display:"inline-block"}}),React.createElement("span",{style:{color:"#94a3b8",flex:1}},p.dataKey),React.createElement("span",{style:{fontWeight:600,color:p.value<0?"#16a34a":"#dc2626"}},p.value.toFixed(1)+"%"));}))}}/>
-                {selected.map(function(c,i){return <Line key={c} type="monotone" dataKey={c} stroke={COLORS[i%COLORS.length]} strokeWidth={2} dot={false} connectNulls/>;})}
-              </LineChart>
-            </ResponsiveContainer>
-          </div>
-          {CB[singleCountry]?React.createElement("div",{style:{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px",marginTop:14}},React.createElement("div",{style:{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:2}},"CATEGORY BREAKDOWN"),React.createElement("div",{style:{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}},singleCountry+" - YoY by category, "+Object.keys(CB[singleCountry]).sort().pop()),(function(){var cv=CB[singleCountry][Object.keys(CB[singleCountry]).sort().pop()];var bd=[];for(var ii=0;ii<CATS.length;ii++){if(cv[ii]!=null)bd.push({c:CATS[ii],r:cv[ii]});}bd.sort(function(a,b){return b.r-a.r;});var mx=5;for(var jj=0;jj<bd.length;jj++){if(Math.abs(bd[jj].r)>mx)mx=Math.abs(bd[jj].r);}return bd.map(function(d){var bw=Math.min(Math.abs(d.r)/mx*50,50);return React.createElement("div",{key:d.c,style:{display:"flex",alignItems:"center",padding:"6px 0",borderBottom:"0.5px solid "+P.gridLine}},React.createElement("span",{style:{width:140,fontSize:13,fontFamily:"'IBM Plex Mono',monospace",color:P.textMid,flexShrink:0}},d.c),React.createElement("div",{style:{flex:1,height:18,position:"relative"}},React.createElement("div",{style:{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}),d.r<0?React.createElement("div",{style:{position:"absolute",right:"50%",top:1,bottom:1,width:bw+"%",background:"rgba(22,163,74,0.2)",borderRadius:3}}):React.createElement("div",{style:{position:"absolute",left:"50%",top:1,bottom:1,width:bw+"%",background:"rgba(220,38,38,0.2)",borderRadius:3}})),React.createElement("span",{style:{width:55,textAlign:"right",fontSize:14,fontWeight:600,fontFamily:"'IBM Plex Mono',monospace",color:d.r<0?P.green:P.red}},d.r.toFixed(1)+"%"));});}())):null}
-        </div>)}
-
-        {tab==="single"&&(<div>
-          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
-            <span style={{fontSize:13,fontWeight:600,color:P.text}}>Country:</span>
-            <select value={singleCountry} onChange={function(e){setSingleCountry(e.target.value)}} style={{padding:"8px 14px",borderRadius:8,border:"1px solid "+P.border,fontFamily:"'IBM Plex Mono',monospace",fontSize:13,color:P.text,background:P.card}}>{CN.map(function(c){return <option key={c} value={c}>{c}</option>;})}</select>
-          </div>
-          {latestRate!==null&&(<div style={{display:"flex",gap:14,alignItems:"baseline",marginBottom:18}}>
-            <div style={{fontSize:mob?36:44,fontWeight:700,color:latestRate<0?P.green:P.red,fontFamily:"'IBM Plex Mono',monospace"}}>{latestRate.toFixed(1)}%</div>
-            <div><div style={{fontSize:13,color:P.textLight}}>Headline CPI (YoY)</div><div style={{fontSize:12,color:P.textMid,fontFamily:"'IBM Plex Mono',monospace"}}>{latestDate} | {singleCountry}</div></div>
-          </div>)}
-          <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px"}}>
-            <div style={{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}}>{singleCountry}, YoY Inflation (%), 2005-2026</div>
-            <ResponsiveContainer width="100%" height={mob?280:380}>
-              <LineChart data={singleData}><CartesianGrid strokeDasharray="3 3" stroke={P.gridLine}/><XAxis dataKey="date" tick={{fontSize:mob?8:10,fill:P.textLight}} axisLine={false} tickLine={false} interval={mob?11:7}/><YAxis tick={{fontSize:10,fill:P.textLight}} axisLine={false} tickLine={false} tickFormatter={function(v){return v+"%"}}/><ReferenceLine y={0} stroke={P.border} strokeWidth={1}/><Tooltip content={function(props){if(!props.active||!props.payload||!props.payload.length)return null;var p=props.payload[0];return React.createElement("div",{style:{background:"#fff",border:"1px solid #e2e8f0",borderRadius:8,padding:"10px 14px",fontSize:12,fontFamily:"monospace"}},React.createElement("div",{style:{fontWeight:600,color:P.navy}},props.label),React.createElement("div",{style:{fontWeight:600,color:p.value<0?"#16a34a":"#dc2626",marginTop:4}},p.value.toFixed(1)+"%"))}}/><Line type="monotone" dataKey="rate" stroke="#2563eb" strokeWidth={2.5} dot={false} connectNulls name={singleCountry}/></LineChart>
-            </ResponsiveContainer>
-          </div>
-          {CB[singleCountry]?React.createElement("div",{style:{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px",marginTop:14}},React.createElement("div",{style:{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:2}},"CATEGORY BREAKDOWN"),React.createElement("div",{style:{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}},singleCountry+" - YoY by category, "+Object.keys(CB[singleCountry]).sort().pop()),(function(){var cv=CB[singleCountry][Object.keys(CB[singleCountry]).sort().pop()];var bd=[];for(var ii=0;ii<CATS.length;ii++){if(cv[ii]!=null)bd.push({c:CATS[ii],r:cv[ii]});}bd.sort(function(a,b){return b.r-a.r;});var mx=5;for(var jj=0;jj<bd.length;jj++){if(Math.abs(bd[jj].r)>mx)mx=Math.abs(bd[jj].r);}return bd.map(function(d){var bw=Math.min(Math.abs(d.r)/mx*50,50);return React.createElement("div",{key:d.c,style:{display:"flex",alignItems:"center",padding:"6px 0",borderBottom:"0.5px solid "+P.gridLine}},React.createElement("span",{style:{width:140,fontSize:13,fontFamily:"'IBM Plex Mono',monospace",color:P.textMid,flexShrink:0}},d.c),React.createElement("div",{style:{flex:1,height:18,position:"relative"}},React.createElement("div",{style:{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}),d.r<0?React.createElement("div",{style:{position:"absolute",right:"50%",top:1,bottom:1,width:bw+"%",background:"rgba(22,163,74,0.2)",borderRadius:3}}):React.createElement("div",{style:{position:"absolute",left:"50%",top:1,bottom:1,width:bw+"%",background:"rgba(220,38,38,0.2)",borderRadius:3}})),React.createElement("span",{style:{width:55,textAlign:"right",fontSize:14,fontWeight:600,fontFamily:"'IBM Plex Mono',monospace",color:d.r<0?P.green:P.red}},d.r.toFixed(1)+"%"));});}())):null}
-        </div>)}
-
-        {tab==="rank"&&(<div>
-          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,flexWrap:"wrap"}}>
-            <span style={{fontSize:13,fontWeight:600,color:P.text}}>Month:</span>
-            <input type="range" min={0} max={DT.length-1} value={rankMonth} onChange={function(e){setRankMonth(parseInt(e.target.value))}} style={{flex:1,maxWidth:400}}/>
-            <span style={{fontSize:14,fontWeight:600,color:P.navy,fontFamily:"'IBM Plex Mono',monospace"}}>{DT[rankMonth]}</span>
-          </div>
-          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14}}>
-            <span style={{fontSize:13,fontWeight:600,color:P.text}}>Category:</span>
-            <select value={rankCat} onChange={function(e){setRankCat(e.target.value)}} style={{padding:"6px 12px",borderRadius:8,border:"1px solid "+P.border,fontFamily:"'IBM Plex Mono',monospace",fontSize:12,color:P.text,background:P.card}}>
-              <option value="Headline">Headline (all items)</option>
-              {CATS.map(function(ct){return <option key={ct} value={ct}>{ct}</option>;})}
-            </select>
-          </div>
-          {globalRate!==null&&(<div style={{display:"flex",gap:14,alignItems:"baseline",marginBottom:18}}>
-            <div style={{fontSize:mob?28:36,fontWeight:700,color:globalRate<0?P.green:P.red,fontFamily:"'IBM Plex Mono',monospace"}}>{globalRate.toFixed(1)}%</div>
-            <div><div style={{fontSize:13,color:P.textLight}}>DM Population-Weighted Average</div><div style={{fontSize:12,color:P.textMid,fontFamily:"'IBM Plex Mono',monospace"}}>{DT[rankMonth]}</div></div>
-          </div>)}
-          <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,overflow:"hidden"}}>
-            <div style={{display:"flex",padding:"8px 14px",background:P.gridLine,borderBottom:"1px solid "+P.border}}>
-              <span style={{width:30,fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>#</span>
-              <span style={{flex:1,fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase"}}>Country</span>
-              <span style={{width:50,textAlign:"right",fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase"}}>Pop %</span>
-              <span style={{width:65,textAlign:"right",fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase"}}>YoY %</span>
-              <span style={{width:mob?80:120,textAlign:"center",marginLeft:8,fontSize:9,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>deflation | inflation</span>
-            </div>
-            {rankData.map(function(d,i){var barW=Math.min(Math.abs(d.rate)/15*50,50);var popPct=POP[d.country]?Math.round(POP[d.country]*1000)/10:null;return(
-              <div key={d.country} style={{display:"flex",alignItems:"center",padding:"7px 14px",borderBottom:"0.5px solid "+P.gridLine}}>
-                <span style={{width:30,fontSize:12,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>{i+1}</span>
-                <span style={{flex:1,fontSize:13,fontWeight:500,color:P.text}}>{d.country}</span>
-                <span style={{width:50,textAlign:"right",fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>{popPct?popPct+"%":""}</span>
-                <span style={{width:65,textAlign:"right",fontSize:14,fontWeight:600,fontFamily:"'IBM Plex Mono',monospace",color:d.rate<0?P.green:P.red}}>{d.rate.toFixed(1)}</span>
-                <div style={{width:mob?80:120,height:14,position:"relative",marginLeft:8}}>
-                  <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}/>
-                  {d.rate<0?React.createElement("div",{style:{position:"absolute",right:"50%",top:0,bottom:0,width:barW+"%",background:"rgba(22,163,74,0.15)",borderRadius:3}}):React.createElement("div",{style:{position:"absolute",left:"50%",top:0,bottom:0,width:barW+"%",background:"rgba(220,38,38,0.15)",borderRadius:3}})}
-                </div>
-              </div>
-            );})}
-          </div>
-        </div>)}
-
-        <div style={{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",marginTop:16,textAlign:"center"}}>Source: National statistics offices, Eurostat | Saltmarsh Economics 2026</div>
-      </div>
-    </div>
-  );
+function Bars(props){
+  var rows=props.rows;var mx=5;rows.forEach(function(r){if(Math.abs(r.v)>mx)mx=Math.abs(r.v);});
+  return h("div",null,rows.map(function(r,i){
+    var bw=Math.min(Math.abs(r.v)/mx*50,50);
+    return h("div",{key:r.k,style:{display:"flex",alignItems:"center",padding:"7px 0",borderBottom:"0.5px solid "+P.grid}},
+      props.rank?h("span",{style:{width:28,fontSize:12,color:P.light,fontFamily:MONO}},i+1):null,
+      h("span",{style:{width:props.mob?110:170,fontSize:props.mob?12:13,color:P.text,flexShrink:0}},r.k),
+      h("div",{style:{flex:1,height:18,position:"relative"}},
+        h("div",{style:{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}),
+        h("div",{style:r.v<0?{position:"absolute",right:"50%",top:1,bottom:1,width:bw+"%",background:"rgba(22,163,74,0.25)",borderRadius:3}:{position:"absolute",left:"50%",top:1,bottom:1,width:bw+"%",background:"rgba(220,38,38,0.25)",borderRadius:3}})),
+      h("span",{style:{width:60,textAlign:"right",fontSize:14,fontWeight:600,fontFamily:MONO,color:col(r.v)}},fmt(r.v)));
+  }));
 }
 
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
-}catch(e){document.getElementById('root').textContent='CATCH: '+e.message;}
-</script>
-</body>
-</html>
+function Chart(props){
+  return h(RC.ResponsiveContainer,{width:"100%",height:props.mob?280:380},
+    h(RC.LineChart,{data:props.data,margin:{top:5,right:10,left:0,bottom:5}},
+      h(RC.CartesianGrid,{strokeDasharray:"3 3",stroke:P.grid}),
+      h(RC.XAxis,{dataKey:"date",ticks:TICKS,tickFormatter:function(d){return d.slice(0,4);},tick:{fontSize:10,fill:P.light},axisLine:false,tickLine:false}),
+      h(RC.YAxis,{tick:{fontSize:10,fill:P.light},axisLine:false,tickLine:false,tickFormatter:function(v){return v+"%";}}),
+      h(RC.ReferenceLine,{y:0,stroke:P.border}),
+      h(RC.Tooltip,{formatter:function(v){return v===null?"–":Number(v).toFixed(1)+"%";}}),
+      props.lines.map(function(l){return h(RC.Line,{key:l.key,type:"monotone",dataKey:l.key,stroke:l.color,strokeWidth:l.width||2,strokeDasharray:l.dash||null,dot:false,connectNulls:true,isAnimationActive:false});})));
+}
+
+function Select(props){return h("select",{value:props.value,onChange:function(e){props.onChange(e.target.value);},style:{padding:"8px 12px",borderRadius:8,border:"1px solid "+P.border,fontFamily:MONO,fontSize:13,color:P.text,background:P.card}},
+  props.options.map(function(o){return h("option",{key:o.v,value:o.v},o.l);}));}
+
+function Row(props){return h("div",{style:{display:"flex",alignItems:"center",gap:10,marginBottom:14,flexWrap:"wrap"}},h("span",{style:{fontSize:13,fontWeight:600,color:P.text}},props.label),props.children);}
+
+function App(){
+  var t=useState((typeof window!=="undefined"&&window.__TAB)||"compare"),tab=t[0],setTab=t[1];
+  var s=useState(["United States","Germany","Japan","France"]),sel=s[0],setSel=s[1];
+  var c=useState("United States"),country=c[0],setCountry=c[1];
+  var cm=useState(""),ctyMonth=cm[0],setCtyMonth=cm[1];
+  var rc=useState((typeof window!=="undefined"&&window.__CAT)||"Headline"),rankCat=rc[0],setRankCat=rc[1];
+  var rm=useState(DT.length-1),rankIdx=rm[0],setRankIdx=rm[1];
+  var rcm=useState(CB_MONTHS[CB_MONTHS.length-1]),rankCatMonth=rcm[0],setRankCatMonth=rcm[1];
+  var mb=useState(typeof window!=="undefined"&&window.innerWidth<768),mob=mb[0],setMob=mb[1];
+  useEffect(function(){var f=function(){setMob(window.innerWidth<768);};window.addEventListener("resize",f);return function(){window.removeEventListener("resize",f);};},[]);
+
+  var compareData=useMemo(function(){return DT.map(function(d,i){var r={date:d,"DM average":GLB[i]};sel.forEach(function(k){r[k]=gv(k,i);});return r;});},[sel]);
+  var countryData=useMemo(function(){return DT.map(function(d,i){return {date:d,Headline:gv(country,i)};});},[country]);
+  var latest=null,latestD="";for(var i=DT.length-1;i>-1;i--){var v=gv(country,i);if(v!==null){latest=v;latestD=DT[i];break;}}
+  var cbMonths=CB[country]?Object.keys(CB[country]).sort():[];
+  var useM=(ctyMonth&&cbMonths.indexOf(ctyMonth)>-1)?ctyMonth:cbMonths[cbMonths.length-1];
+  var catRows=[];if(useM){var cv=CB[country][useM];CATS.forEach(function(k,j){if(cv[j]!==null&&cv[j]!==undefined)catRows.push({k:k,v:cv[j]});});catRows.sort(function(a,b){return b.v-a.v;});}
+
+  var rankRows=useMemo(function(){
+    var out=[];
+    if(rankCat==="Headline"){CN.forEach(function(k){var v=gv(k,rankIdx);if(v!==null)out.push({k:k,v:v});});}
+    else{var j=CATS.indexOf(rankCat);CN.forEach(function(k){var cb=CB[k];if(cb&&cb[rankCatMonth]){var v=cb[rankCatMonth][j];if(v!==null&&v!==undefined)out.push({k:k,v:v});}});}
+    out.sort(function(a,b){return b.v-a.v;});return out;
+  },[rankCat,rankIdx,rankCatMonth]);
+
+  function toggle(k){if(sel.indexOf(k)>-1)setSel(sel.filter(function(x){return x!==k;}));else if(sel.length<6)setSel(sel.concat([k]));}
+
+  var header=h("div",{style:{background:P.navy,padding:mob?"14px 16px":"18px 28px",display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",alignItems:mob?"stretch":"center",gap:10}},
+    h("div",null,h("div",{style:{fontSize:mob?22:28,fontWeight:700,color:"#fff"}},"GGIM"),h("div",{style:{fontSize:11,color:P.accent,fontFamily:MONO,letterSpacing:"0.08em"}},"GLOBAL INFLATION MONITOR")),
+    h("div",{style:{display:"flex",gap:6}},[["compare","Compare"],["country","Country"],["rank","Ranking"]].map(function(b){var on=tab===b[0];
+      return h("button",{key:b[0],onClick:function(){setTab(b[0]);},style:{padding:mob?"8px 12px":"10px 24px",flex:mob?1:"initial",borderRadius:8,border:"2px solid "+(on?P.accent:"rgba(255,255,255,0.2)"),background:on?P.accent:"transparent",color:on?P.navy:"#fff",fontFamily:MONO,fontSize:mob?12:14,fontWeight:700,cursor:"pointer"}},b[1]);})));
+
+  var body;
+  if(tab==="compare"){
+    body=h("div",null,
+      h(Big,{mob:mob,value:GLB[GLB_LAST],label:"Developed-market inflation (population-weighted)",sub:DT[GLB_LAST]}),
+      h("div",{style:{fontSize:13,fontWeight:600,color:P.text,marginBottom:8}},"Select countries (up to 6):"),
+      h("div",{style:{display:"flex",flexWrap:"wrap",gap:4,marginBottom:14}},CN.map(function(k){var ix=sel.indexOf(k),on=ix>-1;
+        return h("button",{key:k,onClick:function(){toggle(k);},style:{padding:"4px 10px",borderRadius:6,fontSize:11,fontFamily:MONO,border:"1px solid "+(on?COLORS[ix]:P.border),background:on?COLORS[ix]:"transparent",color:on?"#fff":P.mid,cursor:"pointer"}},k);})),
+      h(Card,{label:"Headline CPI",title:"YoY inflation (%) — black dashed line = DM population-weighted average"},
+        h(Chart,{mob:mob,data:compareData,lines:[{key:"DM average",color:"#111827",width:3,dash:"6 3"}].concat(sel.map(function(k,ix){return {key:k,color:COLORS[ix]};}))})));
+  } else if(tab==="country"){
+    body=h("div",null,
+      h(Row,{label:"Country:"},h(Select,{value:country,onChange:function(v){setCountry(v);setCtyMonth("");},options:CN.map(function(k){return {v:k,l:k};})})),
+      h(Big,{mob:mob,value:latest,label:"Headline CPI (YoY)",sub:latestD+" · "+country}),
+      h(Card,{label:"Headline CPI",title:country+" — YoY inflation (%)"},h(Chart,{mob:mob,data:countryData,lines:[{key:"Headline",color:"#2563eb",width:2.5}]})),
+      h(Card,{mt:14,label:"By category",title:catRows.length?(country+" — YoY by category"):"No category breakdown available for "+country},
+        cbMonths.length?h(Row,{label:"Month:"},h(Select,{value:useM,onChange:setCtyMonth,options:cbMonths.slice().reverse().map(function(m){return {v:m,l:m};})})):null,
+        catRows.length?h(Bars,{rows:catRows,mob:mob}):null));
+  } else {
+    var isH=rankCat==="Headline";
+    body=h("div",null,
+      h(Row,{label:"Category:"},h(Select,{value:rankCat,onChange:setRankCat,options:[{v:"Headline",l:"Headline (all items)"}].concat(CATS.map(function(k){return {v:k,l:k};}))})),
+      isH?h(Row,{label:"Month:"},h("input",{type:"range",min:0,max:DT.length-1,value:rankIdx,onChange:function(e){setRankIdx(parseInt(e.target.value));},style:{flex:1,maxWidth:400}}),h("span",{style:{fontSize:14,fontWeight:600,color:P.navy,fontFamily:MONO}},DT[rankIdx]))
+         :h(Row,{label:"Month:"},h(Select,{value:rankCatMonth,onChange:setRankCatMonth,options:CB_MONTHS.slice().reverse().map(function(m){return {v:m,l:m};})})),
+      h(Card,{label:"Ranking",title:(isH?"Headline":rankCat)+" inflation, YoY — "+(isH?DT[rankIdx]:rankCatMonth)},
+        rankRows.length?h(Bars,{rows:rankRows,mob:mob,rank:true}):h("div",{style:{color:P.light,fontSize:13}},"No data for this month")));
+  }
+
+  return h("div",{style:{background:P.bg,fontFamily:"'Libre Franklin',sans-serif",color:P.text,minHeight:"100vh"}},header,
+    h("div",{style:{padding:mob?"14px 12px":"20px 28px",maxWidth:1100,margin:"0 auto"}},body,
+      h("div",{style:{fontSize:10,color:P.light,fontFamily:MONO,marginTop:16,textAlign:"center"}},"Source: National statistics offices, Eurostat · DM average weighted by population share of countries with data · Saltmarsh Economics © 2026")));
+}
+
+class EB extends React.Component{constructor(p){super(p);this.state={e:null};}static getDerivedStateFromError(e){return {e:e};}render(){return this.state.e?h("div",{style:{padding:20,fontFamily:"monospace",color:"#dc2626"}},"Error: "+this.state.e.message):this.props.children;}}
+if(typeof document!=="undefined"&&document.getElementById("root")){ReactDOM.createRoot(document.getElementById("root")).render(h(EB,null,h(App)));}
+
+</script></body></html>
