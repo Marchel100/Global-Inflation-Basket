@@ -231,7 +231,7 @@ function App(){
             </select>
           </div>
           {globalRate!==null&&rankCat==="Headline"&&(<div style={{display:"flex",gap:14,alignItems:"baseline",marginBottom:18}}>
-            <div style={{fontSize:mob?28:36,fontWeight:700,color:globalRate>=0?P.red:P.green,fontFamily:"'IBM Plex Mono',monospace"}}>{globalRate.toFixed(1)}%</div>
+            <div style={{fontSize:mob?28:36,fontWeight:700,color:globalRate<0?P.green:P.red,fontFamily:"'IBM Plex Mono',monospace"}}>{globalRate.toFixed(1)}%</div>
             <div><div style={{fontSize:13,color:P.textLight}}>DM Population-Weighted Average</div><div style={{fontSize:12,color:P.textMid,fontFamily:"'IBM Plex Mono',monospace"}}>{DT[rankMonth]}</div></div>
           </div>)}
           <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,overflow:"hidden"}}>
