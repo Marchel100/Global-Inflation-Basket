@@ -57,6 +57,46 @@ var COLORS=["#2563eb","#dc2626","#16a34a","#d97706","#7c3aed","#0891b2","#be123c
 function gv(c,i){var v=CD[c];if(!v)return null;var r=v[i];return r===null?null:parseFloat(r);}
 function ChartTip(props){var active=props.active,payload=props.payload,label=props.label;if(!active||!payload||!payload.length)return null;return React.createElement("div",{style:{background:"#fff",border:"1px solid #e2e8f0",borderRadius:8,padding:"10px 14px",fontSize:12,fontFamily:"monospace",boxShadow:"0 4px 12px rgba(0,0,0,0.08)"}},React.createElement("div",{style:{fontWeight:600,marginBottom:4,color:P.navy}},label),payload.filter(function(p){return p.value!=null}).sort(function(a,b){return b.value-a.value}).map(function(p,i){return React.createElement("div",{key:i,style:{display:"flex",alignItems:"center",gap:6,marginTop:2}},React.createElement("span",{style:{width:8,height:8,borderRadius:"50%",background:p.color,display:"inline-block"}}),React.createElement("span",{style:{color:"#94a3b8",flex:1}},p.dataKey),React.createElement("span",{style:{fontWeight:600,color:p.value>=0?"#dc2626":"#16a34a"}},p.value.toFixed(1)+"%"));}));}
 
+function CatBar(props){
+  var country=props.country,mob=props.mob;
+  var cb=CB[country];
+  if(!cb)return null;
+  var cbMonths=Object.keys(cb).sort();
+  if(!cbMonths.length)return null;
+  var latestM=cbMonths[cbMonths.length-1];
+  var catVals=cb[latestM];
+  if(!catVals)return null;
+  var barData=[];
+  for(var i=0;i<CATS.length;i++){
+    if(catVals[i]!==null&&catVals[i]!==undefined){barData.push({cat:CATS[i],rate:catVals[i]});}
+  }
+  barData.sort(function(a,b){return b.rate-a.rate;});
+  if(!barData.length)return null;
+  var maxR=0;
+  for(var j=0;j<barData.length;j++){var ar=Math.abs(barData[j].rate);if(ar>maxR)maxR=ar;}
+  var barMax=Math.max(maxR,5);
+  return(
+    <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px",marginTop:14}}>
+      <div style={{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:2}}>CATEGORY BREAKDOWN</div>
+      <div style={{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}}>{country} — YoY by category, {latestM}</div>
+      {barData.map(function(d){
+        var barW=Math.min(Math.abs(d.rate)/barMax*50,50);
+        return(
+          <div key={d.cat} style={{display:"flex",alignItems:"center",padding:"6px 0",borderBottom:"0.5px solid "+P.gridLine}}>
+            <span style={{width:mob?100:140,fontSize:mob?11:13,fontFamily:"'IBM Plex Mono',monospace",color:P.textMid,flexShrink:0}}>{d.cat}</span>
+            <div style={{flex:1,height:18,position:"relative"}}>
+              <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}/>
+              {d.rate>=0?<div style={{position:"absolute",left:"50%",top:1,bottom:1,width:barW+"%",background:"rgba(220,38,38,0.2)",borderRadius:3}}/>:
+              <div style={{position:"absolute",right:"50%",top:1,bottom:1,width:barW+"%",background:"rgba(22,163,74,0.2)",borderRadius:3}}/>}
+            </div>
+            <span style={{width:55,textAlign:"right",fontSize:14,fontWeight:600,fontFamily:"'IBM Plex Mono',monospace",color:d.rate>=0?P.red:P.green}}>{d.rate.toFixed(1)}%</span>
+          </div>
+        );
+      })}
+    </div>
+  );
+}
+
 function App(){
   var sr=useState("compare"),tab=sr[0],setTab=sr[1];
   var ss=useState(["United States","Germany","Japan","United Kingdom"]),selected=ss[0],setSelected=ss[1];
@@ -116,40 +156,7 @@ function App(){
               <LineChart data={singleData}><CartesianGrid strokeDasharray="3 3" stroke={P.gridLine}/><XAxis dataKey="date" tick={{fontSize:mob?8:10,fill:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}} axisLine={false} tickLine={false} interval={mob?11:7}/><YAxis tick={{fontSize:10,fill:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}} axisLine={false} tickLine={false} tickFormatter={function(v){return v+"%"}}/><ReferenceLine y={0} stroke={P.border} strokeWidth={1}/><Tooltip content={ChartTip}/><Line type="monotone" dataKey="rate" stroke="#2563eb" strokeWidth={2.5} dot={false} connectNulls name={singleCountry}/></LineChart>
             </ResponsiveContainer>
           </div>
-          {/* Category breakdown bar chart */}
-          {(function(){
-            var cb=CB[singleCountry];
-            if(!cb)return null;
-            var cbMonths=Object.keys(cb).sort();
-            if(!cbMonths.length)return null;
-            var latestM=cbMonths[cbMonths.length-1];
-            var catVals=cb[latestM];
-            if(!catVals)return null;
-            var barData=CATS.map(function(c,i){return{cat:c,rate:catVals[i]};}).filter(function(d){return d.rate!==null;}).sort(function(a,b){return b.rate-a.rate;});
-            if(!barData.length)return null;
-            var maxR=Math.max.apply(null,barData.map(function(d){return Math.abs(d.rate);}));
-            var barMax=Math.max(maxR,5);
-            return(
-              <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,padding:"18px 16px",marginTop:14}}>
-                <div style={{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.1em",marginBottom:2}}>CATEGORY BREAKDOWN</div>
-                <div style={{fontSize:16,fontWeight:600,color:P.text,marginBottom:14}}>{singleCountry} — YoY by category, {latestM}</div>
-                {barData.map(function(d){
-                  var barW=Math.min(Math.abs(d.rate)/barMax*50,50);
-                  return(
-                    <div key={d.cat} style={{display:"flex",alignItems:"center",padding:"6px 0",borderBottom:"0.5px solid "+P.gridLine}}>
-                      <span style={{width:mob?100:140,fontSize:mob?11:13,fontFamily:"'IBM Plex Mono',monospace",color:P.textMid,flexShrink:0}}>{d.cat}</span>
-                      <div style={{flex:1,height:18,position:"relative"}}>
-                        <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}/>
-                        {d.rate>=0?<div style={{position:"absolute",left:"50%",top:1,bottom:1,width:barW+"%",background:"rgba(220,38,38,0.2)",borderRadius:3}}/>:
-                        <div style={{position:"absolute",right:"50%",top:1,bottom:1,width:barW+"%",background:"rgba(22,163,74,0.2)",borderRadius:3}}/>}
-                      </div>
-                      <span style={{width:55,textAlign:"right",fontSize:14,fontWeight:600,fontFamily:"'IBM Plex Mono',monospace",color:d.rate>=0?P.red:P.green}}>{d.rate.toFixed(1)}%</span>
-                    </div>
-                  );
-                })}
-              </div>
-            );
-          })()}
+          <CatBar country={singleCountry} mob={mob}/>
         </div>)}
 
         {tab==="rank"&&(<div>
