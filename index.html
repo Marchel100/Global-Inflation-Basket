@@ -1,283 +1,144 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>GGIM — Global Inflation Monitor</title>
-<meta name="robots" content="noindex, nofollow">
-</head>
-<body>
-<div id="root">Loading...</div>
-<script src="https://unpkg.com/react@18.2.0/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://unpkg.com/@babel/standalone@7.24.0/babel.min.js"></script>
-<script>
-window.onerror = function(msg, url, line, col, error) {
-  document.getElementById('root').textContent = 'ERROR: ' + msg + ' (line ' + line + ')';
-  return true;
-};
-</script>
-<script type="text/babel">
-try {
-const { useState, useEffect, useMemo } = React;
+PK
+     sq5]            
+  ggim-drop/UT	 ;±j;±jux
+         PK    sq5]§÷7«04  r½    ggim-drop/index.htmlUT	 ;±j;±jux
+         í}ÛrG–í»¾·ÈqªÌº“‚|‘d·f$Ë!k¢§Ãá‡"PÑP¤¤f3¢ÿáÌOœ/8ïó)ý%'okïEÐVÛã'Á
+uÉÌÊÚ¹rí[âáïž¼|üúÏß>÷ËG÷Ú£e»z3w«±=Ðµsóï¢ëÛÑì¼Ýîº~:þ÷×_Õc^µÝt|µèÞmÖÛ~<š­W}·2—½[Ìûóé¼»ZÌº#÷%-V‹~Ñ.v³vÙMÕ$µÅô‹~Ù=úúëg/FÿøûŽ¾^®OÛåèÙêlÙö‹õjôbmîZo>ðÞ{ø 4ët=ÿ`þÍW£Å|:Þ®×ýøÑóu;_¬ÞL&“‡Ìs~7Û.6ýh·MÇç}¿Ù?xp¹Ú¼}3™­/l»vÖ®ê‰ž¤./æþÀd³]Ï/g¶þÉÅb5ùËnüèá_ÒÇy4__Ü*ÖüEE›{7Gý‡M·û\“z¢Ä‘ŸÓPûRûÝçz¢ÒIæÚù*ûçJúü´=í–v}»š·Ëõªû¼šèÜ<º;~wË½[¬æëwsÇv»ÞNÏ.W®g.’Ëdyx=_Ï./Œ8MÞtýÓegw¿üðl~pß¾ìû‡“¾{ß?wÿé«W/_îzñéýÑÁr±êÌþòÓû‡÷O¶]¹]úíewrsrû±l NÇ¶4ßb#—ýöÃõ½«v;ºÜußõmßM_9ÉÀ×Äì<=;ëf=Ÿðßí™ÝÅšÛo'®°ç¦Um O©£éPb÷âãÉ|ñ~±ãcîkòçø ûš¼^¯—ýbÃ‡ÃäU·Û¬W»ÅUg{ª5¥nù¢='“ÇæL·[´«¯·f\Ñ¥ÑaSêY·íV³.nttøäžAƒ]?zòzúýX§iq”ªqö4íe´—Ó^A{%íU´WÓ^ƒ=•ÒÕ¡B%Õ[R½%Õ[R½%Õ[R½%Õ[R½%Õ[R½%Õ[R½Õ[Q½Õ[Q½Õ[Q½Õ[Q½Õ[Q½Õ[Q½5Õ[S½5Õ[S½5Õ[S½5Õ[S½5Õ[S½5Õ[S½
+ÕÛP½
+ÕÛP½
+ÕÛP½
+ÕÛP½
+ÕÛP½
+ÕÛ ^•¢^»ÇÇ2ÚËi¯ ½’ö*Ú«i¯Á^¨×îQ¨WQ½ŠêUT¯¢zÕ«¨^Eõ*ªWQ½ŠêUT¯¢z5Õ«©^MõjªWS½šêÕT¯¦z5Õ«©^Mõjª7£z3ª7£z3ª7£z3ª7£z3ª7£z3ª7£z3ª7§zsª7§zsª7§zsª7§zsª7§zsª7§zsª—ðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥¯á•"¼R„WŠðJ^)Â+Ex¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJ^iÂ+Mx¥	¯4á•&¼Ò„WšðJJiB)M(¥	¥4¡”&”Ò„RšPJ;”úüðñ“éõ½ñ¿5¯›¹Þ¿Ï&iâ7e¶"Ñ“Úl…Ù×f+“|R™-sç²InöSwÜîÛc¹¹ÎžÏÝýö^•(óÝhd®û]›k}¹¥Ùª°åáš:”ãËðÿÓPOãÊ/Ì~aî-\ý9^™:T’º-5›NŽRsÒ|TÉ‘­Þ|˜¯¶r³W„cö:åÚQ…¶Ø¶Ù¶j×åÚ®Ã¹_˜
+×WÔ7¼Õ®­è£Ì=W¶ÊÕ¡\›í–»ÿþÙ}{üñ2´¡uæ¡­8f¯MÃß´Í—¥Â–Šº*÷.RSÎ‘í¬#Û[ØÓþ«ïDˆöK‘¤ÔZ{¬	µ¥á{õŒ"Þ8Þ®miCç•ë
+MOÎ-ÖázH_Üsþ¸,«e¥¡÷JÑ‹Uè5%îÍÜ=©ë	û°exŽ,<Ÿ[.ÞN)$/[æþ—æxiê¨Ì¹Ê”[™¶ÔæmÎ×æ¾ÆÔÁßµ9_™M™{
+³ÙûSWnî¤£O;©ÎHºT$¾C²2!]Eè7Œª&œ«Ãñ,ü¯çåD™µ{ÞPÏÉ½ñ¿¶›ve Â‹Cš°¬8é)H„xì9)kè«~ø­V»7a¯…øéÔ¸:å#ò”7•NDÓ *Êà““ˆa°xà!…={ï‘}ïG¶ÓŽ¬´áÃaGm?Jzº: MØ+ékŠ
+×)êŠœ®+â½ÂŸÝ×žU‰ç-Ùë²ˆèpÍµ¦’UUbPŠ þ~ß‹D2'ñcÑ+hhj×¯Uhc–p»Sñh${ž3ö
+Fª/®Eâ;¶*lZŒl<ÊÀ5Àô<È [é®áëåãà|-d·Œoød¥‡Ô~(zex3áXM/Jûnà²PWN¸Ï]ŽQßô¨Â¶¨’ ÄÈÂ+Ã~öSñ1§É9±¦-#DÏB]•˜ÿ
+1ÿùzbäÆ¼”ÍÂw7X„ùºÛ^´«cÂk1¥ÔòÑP@š¦ÍC½œJ”;ÆÓdº¦ÉtÿV†‰=ÝˆŽ*ƒ‚Q6¦EgO¶U< qÄ,žÚYD1AeÔ<qf€ûÖcòÄ«ÌÂ†žÓ¡wÐ£èµTL¦x
+@MœÃÄ«Ã~Fí’`ˆ]üV%Îá~ p
+š6<=*ê2‰×‰ÀLè(æE˜ÑÁ@üVQ¨ÂÔ‘'1CÑ4N˜Éxf®Ë‘†¨EGÅ<Ì··Ž©Ï#TØX@}«À
+üH/—¨Ì¦7©Ì1ÏGÊÀ?r³™Ö8yr¥Ú†4Ž¦h³ežXj’™­"š’Hd`@ u ô%IV|ç³dŸ´1=KéÓ?ÔS[ :Ë¿-Voæë
+ƒ«Ëå2ùíã·ÿAŒ Hr¿$bÂè JWbB–;†|*Æ_!ÆÔ&9.3š í1¾Òp Þ—%¬B¨Ðn-€6¤*À
+E¿0åU¯B© >Nu²jSã6e6¾©ÛiüŽrÓ‚+ÓM©ÿ.«ÍñÚáUãT0W•ƒÂ,¨Sž €dâ¹Á0;úY“U&š\(õØ4)öÌ
+$Æ9BóÕ¶]Í:Çgª¨ß¡–ò,žEÇY½­Äyðð9¡Hµ5ÛóÄÎ:ß~©FV¢¯Øh¡hþ­Ã{Ï£©·$Êªoõ¦	°­†žˆ÷:21fpØ²„MFRºAO±
+Ù ä8à*è$ºí„!Cr•Z\;¤ùEèBöJN]å,^nþÜ^¥8
+¥¢†"a­LØ4‘ÁÀ;bž²%™ ˜¢4©äILÔa|ûTÜòD
+Ê	ë”P¦Ø¦úÍ“˜ØÈ*1À¼’GH‰ý_QÁ¦R;ÈK8Qî¯Ü–;!o‚•à0¤ÏUè”\<¨WßéØJ±/E¦
+ÚÀ”Üñ7
+ÏúviõÆ£T¼%6Éð•8/GJmëocdñ0×A&0×H£&ð
+²lfYdÙKAîS!P%¤`ax²bUCª"þ!Ù˜Q¿fÔHÞŠ°Õí´"M8&¬YÂêN–Ha‡BÇ 9ü%¶
+ei€‘v,©Ôð9”£‰&laÛ€¨DÔ‹G™°ÆmD
+^Tš°¢
+f[h¬æAPX¹½Ý7 Ra+Ä³QcsôFž+X?Êh©HŽXÊÂpÊƒè —Þ4ëM±ÓW*§îNåñÜÂ<†}×Jû=íyEcÊ®Í½^EJ¬dÁÁP†á^Š.ªè¦lDò0ÚÌxY%l
+â)<fØ±€9:—ønÓ.VÎ?£¶åÂ"›N=˜Öu@¹†§zŒ¦¡m!ö1¹V‰÷
+r‡¦y°ç¤}fÁ¢í!D‡iÈy2Œe±ö`tu.ÚX$Lka§’¶)Ð¾Lô‡"ÚÌj*<â}<3ú÷¡ï@™%mBH%ôÈL	ÒØX
+v7(‚·JÇvæŒìi<‚Ööœ:6%«¶½{
+8X†¢‘-n(Ìp²`2ÄH•£3D&KØåI‡©6"	¬<0¡6è>––’>Ø _&ÔŠæVNhE*tK%”3™xLðø¡l÷°Òvao+Ãð²åe‚é¶”¿Œö]^¦ê0>š0F@Óò$ö~aš E¨„*üã±¬búvò¸]µóÖ©#xIyôr½Ú„@’r´‹UËö*Áxbó,«[Wà¬ö¶IWfk¢œÉ0{²JÂïß
+NÓ¹¨K
+3ã€T&ø½UqT„¹ün`º’RPom¬H°¡—ÕfDÒ€ÊeIÿ.l“ìçeƒ–Š:Ñ™8Ÿ'ìk–Ó–4`°ÔžÒÀ²$VúÊ„m¢PeuË„T·5É?·…=»ün€ÍÒpÍ
+_ Í#ö4‚T@bUxËPòU˜5U˜Ùª°Õ¤?x½¢v†Ò: FåˆC6ˆÆlšfIpN O<*t/IÒà‰ÿÌãb³<fnMÀ*6«Ày¸†Q%
+\Úô¾E†oºþ¼Û.ÛÕ|çà¯Z¾~¼0—B4â"	|HÅ.V¢ "’àcHJ:;óùÁÁ¦²ÁT\ˆ‡—¦}6ëGŠ6:6\I§¥Ÿ†Ød •œ:j¶œî`Xáw	]²˜J‘H%œ=ryÂzO	Œh¬tqÛXù——Ì:…Æ#92ë ‰/DaC+˜ËÀÙ¯1Ý’&‚ñ« Y ç€QŒ[¤A&6ÃÙ1Åî:Ì%á5÷8°B
+"F–°F$©=¯Xàa©ðþÖ‚ÔŽÒñå.R^ËÐÞ éÊrÁJÖV¡JïˆÉ¼7Æ»fG¦½‰£vìû÷ÄFÓQì±”t*(1Â¶” OÏ3êJ	ÕNP
+ _vË7‹Ë
+2]dIÌ¿9Â„çGð×	[DÀ²¨ŸÙ4-e¨åš1k^?ñÉVŸ†¨^NXÑü¶çÀ—«0N”§Ù
+Æ	\w·­îhN*Þ	Þ
+<ÊlI‰-²Ò]÷T&Lÿ xO°K÷%¬s¬´Cb»¦¾\ŒuVØY;W4¼¥á‹½ì J|—F„ØÖ+©T[ô¥tÍÆöaöìósÃ³ˆ~a-âûÌ1Œ=ˆ² „%4…A‘GžÄ†)»
+A9ÒàVè¹DæxDl•¥S0·eakÈÑ‘‡=÷¨¶opÂš;sü˜…Þ‰†•ÐHPM¨uPË1ò@P² Æ×aèä´ F¥©@ö1OŽÚ‘dÚåœÚñ×nv¾ðz‡Ptr&
+ ÏÓIì>†2)Í×žƒ²PcÞ"ãbØæU>ÞBÜÝ:ÀmMìÎ»¿3 ÅyLÈBS³™“ý"L8¥úß$ìõÃ˜`]ð 2J(,¾€Px£š¬×$ì©’˜óÆ$ø¸˜|-ˆßðSôÐ|áŸ	öé+)iüLI¹y¨HwHŠ
 
-const MONTHS=["Jan","Feb","Mar","Apr","May","Jun","Jul"];
-const MONTH_KEYS=["2026-01","2026-02","2026-03","2026-04","2026-05","2026-06","2026-07"];
-const D={"Australia":[
-[0,"All groups CPI",1000.0,[3.8,3.7,4.6,4.2,4.0,3.8,3.5]],
-[1,"Food and non-alcoholic beverages",174.1,[3.1,3.1,3.1,2.8,3.3,3.3,3.2]],
-[2,"Dairy and related products",10.9,[2.6,2.7,2.5,2.3,5.2,6.3,6.6]],
-[3,"Milk",4.4,[3.9,3.7,4.0,4.0,9.2,8.9,9.5]],
-[3,"Cheese",3.3,[0.2,-0.1,-1.3,-1.4,0.1,2.1,2.4]],
-[3,"Ice cream and other dairy products",3.2,[3.5,4.6,4.7,4.2,5.3,7.5,7.4]],
-[2,"Bread and cereal products",14.9,[0.9,1.0,0.6,0.7,1.5,2.3,1.3]],
-[3,"Bread",5.9,[0.5,0.7,0.9,1.1,2.1,2.7,2.6]],
-[3,"Cakes and biscuits",6.3,[1.8,1.2,0.5,0.1,1.3,1.9,0.3]],
-[3,"Breakfast cereals",1.0,[2.4,4.4,5.1,3.7,3.5,4.7,3.4]],
-[3,"Other cereal products",1.7,[-1.4,-0.6,-2.7,-0.2,-0.7,1.6,-0.5]],
-[2,"Meat and seafoods",21.4,[3.9,4.5,4.8,5.0,5.4,5.4,5.6]],
-[3,"Beef and veal",4.7,[11.2,13.5,11.8,11.9,13.3,11.9,12.6]],
-[3,"Lamb and goat",2.7,[10.5,12.9,15.5,14.6,14.8,14.9,14.3]],
-[3,"Pork",2.6,[0.5,0.5,-0.1,1.7,1.3,2.5,1.3]],
-[3,"Poultry",4.1,[-1.1,-0.6,0.2,1.0,1.0,2.0,1.4]],
-[3,"Other meats",3.9,[1.9,0.9,1.6,1.7,2.4,2.7,3.2]],
-[3,"Fish and other seafood",3.6,[1.9,1.5,1.8,1.4,1.2,0.2,1.9]],
-[2,"Meals out and take away foods",71.7,[3.9,3.7,3.9,3.7,4.0,4.0,4.5]],
-[3,"Restaurant meals",39.6,[3.8,3.6,3.6,3.5,3.9,3.7,4.7]],
-[3,"Take away and fast foods",32.1,[4.1,3.9,4.2,4.0,4.1,4.3,4.2]],
-[2,"Fruit and vegetables",20.7,[1.4,1.9,1.8,0.1,2.0,0.7,-0.9]],
-[3,"Fruit",9.6,[0.7,3.7,4.3,-2.0,4.2,6.9,3.1]],
-[3,"Vegetables",11.1,[2.0,0.5,-0.2,1.9,0.2,-4.2,-4.1]],
-[2,"Food products n.e.c.",22.2,[2.9,3.1,2.9,2.2,1.6,1.3,0.9]],
-[3,"Food additives and condiments",3.0,[1.4,0.8,0.7,1.4,1.5,1.2,0.7]],
-[3,"Oils and fats",2.5,[-2.2,-1.2,0.1,-0.2,-0.4,2.3,2.2]],
-[3,"Eggs",1.4,[2.6,3.3,1.8,-3.6,-4.2,-5.4,-5.3]],
-[3,"Jams, honey and spreads",1.2,[3.5,3.1,3.6,3.1,3.5,2.6,3.4]],
-[3,"Other food products n.e.c.",4.9,[1.4,0.3,0.7,1.6,1.1,0.7,0.6]],
-[3,"Snacks and confectionery",9.3,[5.6,6.7,5.7,4.1,3.0,2.2,1.5]],
-[2,"Non-alcoholic beverages",12.3,[3.4,2.0,2.2,2.0,1.5,2.0,2.0]],
-[3,"Coffee, tea and cocoa",2.8,[13.5,11.4,10.7,9.1,7.3,5.1,1.8]],
-[3,"Waters, soft drinks and juices",9.6,[0.6,-0.5,-0.1,0.1,-0.1,1.2,2.0]],
-[1,"Alcohol and tobacco",66.4,[5.0,4.3,4.4,4.3,4.7,4.4,4.5]],
-[2,"Alcoholic beverages",46.0,[2.3,1.4,1.7,1.6,2.2,1.6,1.8]],
-[3,"Beer",20.6,[2.8,1.5,2.3,2.6,2.4,2.6,3.0]],
-[3,"Wine",16.2,[1.1,1.6,0.7,0.2,1.5,0.2,0.0]],
-[3,"Spirits",9.2,[3.3,0.9,2.1,2.1,3.0,2.1,2.5]],
-[2,"Tobacco",20.5,[11.8,11.5,11.2,10.7,10.9,11.2,11.1]],
-[1,"Clothing and footwear",32.8,[5.6,5.0,7.1,5.9,5.0,4.9,4.9]],
-[2,"Garments",19.3,[4.2,3.2,4.3,3.1,2.1,1.5,1.9]],
-[3,"Garments for men",5.1,[2.0,1.8,0.8,-1.5,-0.4,2.0,4.2]],
-[3,"Garments for women",11.0,[4.9,3.1,5.5,5.6,4.1,1.1,1.2]],
-[3,"Garments for infants and children",3.2,[5.6,5.9,5.4,2.2,-0.7,2.3,0.9]],
-[2,"Footwear",4.5,[1.6,0.6,2.4,1.1,1.6,0.0,2.2]],
-[3,"Footwear for men",1.1,[1.8,-1.1,1.7,-1.4,3.4,0.1,-0.2]],
-[3,"Footwear for women",2.7,[2.1,1.5,4.2,2.1,0.5,-1.0,3.6]],
-[3,"Footwear for infants and children",0.7,[-0.5,-0.1,-3.0,1.1,3.2,4.1,0.3]],
-[2,"Accessories and clothing services",9.0,[11.4,12.0,17.2,15.9,14.5,15.9,13.7]],
-[3,"Accessories",8.2,[12.0,12.7,18.6,17.0,15.5,17.1,14.6]],
-[3,"Cleaning, repair and hire of clothing and footwear",0.7,[4.6,4.4,3.8,3.9,4.1,3.3,3.8]],
-[1,"Housing",222.2,[6.8,7.2,6.5,6.3,6.5,6.8,5.0]],
-[2,"Rents",66.2,[3.9,3.8,3.7,3.5,3.6,3.6,3.6]],
-[2,"New dwelling purchase by owner-occupiers",75.9,[3.5,3.7,4.5,4.7,5.6,5.8,5.7]],
-[2,"Other housing",35.0,[4.2,4.4,4.2,4.4,4.7,4.9,4.7]],
-[3,"Maintenance and repair of the dwelling",20.3,[2.8,3.1,2.8,3.0,3.7,4.0,3.5]],
-[3,"Property rates and charges",14.7,[6.2,6.2,6.2,6.2,6.2,6.2,6.2]],
-[2,"Utilities",45.1,[20.2,22.4,16.8,15.3,14.5,15.7,6.4]],
-[3,"Electricity",26.1,[32.2,37.0,25.4,22.5,21.1,22.4,6.1]],
-[3,"Gas and other household fuels",9.7,[5.8,5.5,5.7,5.7,4.9,7.2,3.7]],
-[3,"Water and sewerage",9.3,[7.1,7.1,7.1,7.1,7.1,7.1,10.2]],
-[1,"Furnishings, household equipment and services",77.1,[1.4,1.3,1.4,1.2,1.7,1.6,1.6]],
-[2,"Furniture and furnishings",13.9,[-1.1,-1.3,0.3,0.2,1.8,0.3,0.2]],
-[2,"Household textiles",4.6,[0.8,0.2,-2.2,-1.5,-4.7,-0.6,0.8]],
-[2,"Household appliances, utensils and tools",12.4,[-0.4,0.3,-0.1,-1.5,-0.2,-0.4,0.7]],
-[3,"Major household appliances",3.3,[0.5,0.5,-0.5,-0.9,-2.4,-4.9,0.4]],
-[3,"Small electric household appliances",2.4,[-2.2,-0.1,-0.1,-2.0,-1.6,-0.5,0.7]],
-[3,"Glassware, tableware and household utensils",3.3,[1.3,0.8,1.4,-2.5,3.0,2.8,-0.4]],
-[3,"Tools and equipment for house and garden",3.4,[-1.7,0.0,-1.1,-0.7,-0.1,1.1,2.1]],
-[2,"Non-durable household products",20.9,[-0.3,0.0,-0.4,-0.4,0.0,0.0,-0.7]],
-[3,"Cleaning and maintenance products",2.1,[1.2,0.2,0.0,1.0,0.9,0.1,1.0]],
-[3,"Other non-durable household products",11.2,[-1.5,-1.3,-1.2,-1.5,-1.1,-1.1,-0.9]],
-[3,"Personal care products",7.7,[1.2,1.8,0.8,0.9,1.4,1.6,-0.9]],
-[2,"Domestic and household services",25.4,[5.2,4.8,4.9,5.2,5.2,5.0,4.9]],
-[3,"Veterinary and other services for pets",5.1,[5.2,4.9,4.2,3.9,3.6,3.6,3.3]],
-[3,"Pets and related products",4.8,[-0.1,-0.3,-0.8,-1.8,-0.2,-0.6,-0.5]],
-[3,"Child care",8.1,[11.5,9.1,9.1,9.0,9.4,7.6,7.3]],
-[3,"Other household services",7.0,[1.5,2.0,1.8,2.9,2.8,3.4,2.9]],
-[1,"Health",68.7,[3.2,3.2,3.0,4.0,3.8,3.7,3.8]],
-[2,"Medical products, appliances and equipment",10.4,[-1.0,-2.1,-0.5,-0.2,-1.9,-1.8,-1.4]],
-[3,"Therapeutic appliances and equipment",1.4,[0.7,1.9,1.7,0.8,1.6,-1.2,0.9]],
-[3,"Pharmaceutical products",9.0,[-1.3,-2.7,-0.8,-0.3,-2.4,-1.9,-1.8]],
-[2,"Medical, dental and hospital services",58.3,[4.1,4.3,3.7,4.8,4.8,4.8,4.8]],
-[3,"Medical and hospital services",52.3,[4.2,4.4,3.8,4.9,5.0,5.0,4.9]],
-[3,"Dental services",5.9,[3.3,3.4,3.4,3.2,3.3,3.4,3.8]],
-[1,"Transport",110.9,[1.1,-0.2,8.9,6.6,3.3,0.1,1.6]],
-[2,"Private motoring",107.9,[1.2,-0.2,9.2,7.5,4.1,0.4,2.1]],
-[3,"Motor vehicles",33.6,[1.5,1.2,1.1,1.1,0.2,2.2,0.8]],
-[3,"Automotive fuel",31.1,[-2.7,-7.2,24.2,18.6,7.7,-7.3,-0.4]],
-[3,"Other services in respect of motor vehicles",13.4,[5.3,5.3,5.2,5.4,5.2,5.2,6.0]],
-[3,"Spare parts and accessories for motor vehicles",8.5,[-0.4,-1.1,-2.2,-1.1,-0.6,1.1,1.5]],
-[3,"Maintenance and repair of motor vehicles",21.2,[5.1,6.0,6.0,5.7,6.3,6.5,5.9]],
-[2,"Urban transport fares",3.0,[-1.8,-0.9,-1.1,-20.8,-21.0,-11.0,-12.3]],
-[1,"Communication",20.7,[1.4,0.8,1.4,1.5,2.1,2.2,2.5]],
-[2,"Communication",20.7,[1.4,0.8,1.4,1.5,2.1,2.2,2.5]],
-[3,"Postal services",1.1,[6.1,4.3,7.5,12.4,11.6,8.7,6.8]],
-[3,"Telecommunication equipment and services",19.6,[1.1,0.6,1.1,1.0,1.6,1.9,2.3]],
-[1,"Recreation and culture",123.7,[3.7,4.1,2.8,2.5,2.4,3.3,2.6]],
-[2,"Audio, visual and computing equipment and services",19.5,[5.7,5.8,4.0,4.1,3.9,2.9,6.7]],
-[2,"Newspapers, books and stationery",4.7,[3.0,3.5,4.8,2.3,3.4,3.1,2.4]],
-[3,"Books",1.4,[1.1,0.3,1.8,-3.1,-0.4,0.4,2.1]],
-[3,"Newspapers, magazines and stationery",3.4,[3.9,4.8,6.0,4.5,4.9,4.2,2.6]],
-[2,"Domestic holiday travel and accommodation",30.6,[5.6,8.8,2.9,6.5,3.0,3.8,2.1]],
-[2,"International holiday travel and accommodation",28.9,[2.0,1.6,1.3,-3.4,0.7,4.2,0.2]],
-[2,"Other recreation, sport and culture",40.0,[2.4,1.7,3.0,3.0,2.3,2.6,2.9]],
-[3,"Equipment for sports, camping and open-air recreation",4.5,[0.6,-1.4,-0.6,0.7,0.7,0.8,-0.2]],
-[3,"Games, toys and hobbies",5.8,[2.7,2.7,7.0,6.5,2.6,3.0,2.9]],
-[3,"Sports participation",10.9,[4.2,3.3,3.7,4.0,4.0,4.5,5.0]],
-[3,"Hairdressing and personal grooming services",10.5,[3.2,3.5,3.9,3.9,3.8,4.2,4.4]],
-[3,"Other recreational, sporting and cultural services",9.0,[1.0,0.2,3.0,2.8,1.4,2.3,3.6]],
-[1,"Education",48.4,[5.4,4.8,4.8,4.8,4.8,4.8,4.8]],
-[2,"Preschool and primary education",9.6,[6.2,5.4,5.4,5.4,5.4,5.3,5.2]],
-[2,"Secondary education",21.4,[6.3,6.6,6.6,6.6,6.6,6.6,6.6]],
-[2,"Tertiary education",17.4,[3.8,2.3,2.3,2.3,2.3,2.3,2.3]],
-[1,"Insurance and financial services",55.1,[2.4,2.4,2.8,3.0,3.2,3.2,3.1]],
-[2,"Insurance",13.6,[2.2,2.5,3.7,4.5,5.5,4.9,4.2]],
-[2,"Financial services",41.5,[2.4,2.4,2.5,2.5,2.5,2.7,2.8]],
-[3,"Deposit and loan facilities (direct charges)",4.0,[4.1,3.8,2.4,1.8,2.2,1.0,2.2]],
-[3,"Other financial services",37.5,[2.3,2.3,2.6,2.6,2.6,2.9,2.9]],
-]};
-const COUNTRIES=Object.keys(D);
-
-const P={navy:"#1a365d",accent:"#93c5fd",bg:"#f8fafc",card:"#fff",border:"#e2e8f0",text:"#1e293b",textMid:"#475569",textLight:"#94a3b8",gridLine:"#f1f5f9",red:"#dc2626",green:"#16a34a"};
-
-function Row({item,mi,depth,allData,idx}){
-  const[open,setOpen]=useState(depth===0);
-  var lvl=item[0],name=item[1],weight=item[2],vals=item[3];
-  var rate=vals[mi];
-  var isL0=lvl===0,isL1=lvl===1;
-
-  // Find children: items after this one with level > this level, until we hit same or lower level
-  var children=[];
-  for(var j=idx+1;j<allData.length;j++){
-    if(allData[j][0]<=lvl)break;
-    if(allData[j][0]===lvl+1)children.push({item:allData[j],idx:j});
-  }
-  var hasChildren=children.length>0;
-  var barMax=10;
-  var barW=Math.min(Math.abs(rate||0)/barMax*50,50);
-  var padL=depth===0?0:depth===1?20:depth===2?44:64;
-
-  return(
-    <div>
-      <div onClick={()=>hasChildren&&setOpen(!open)} style={{
-        display:"flex",alignItems:"center",padding:isL0?"10px 14px":"7px 14px",paddingLeft:14+padL,
-        borderBottom:isL0?"1px solid "+P.border:"0.5px solid "+P.gridLine,
-        background:isL0?"#f0f9ff":open&&isL1?"#fafbfc":"transparent",
-        cursor:hasChildren?"pointer":"default",
-        transition:"background 0.15s",
-      }}>
-        <div style={{flex:1,fontSize:isL0?15:isL1?14:depth===2?13:12,fontWeight:isL0?700:isL1?500:400,
-          color:isL0?P.navy:isL1?P.text:P.textMid,display:"flex",alignItems:"center",gap:6}}>
-          {hasChildren&&<span style={{color:P.textLight,fontSize:10,display:"inline-block",
-            transform:open?"rotate(90deg)":"rotate(0)",transition:"transform 0.2s",width:14,textAlign:"center"}}>▶</span>}
-          {!hasChildren&&<span style={{width:14}}/>}
-          {name}
-        </div>
-        <div style={{width:65,textAlign:"right",fontSize:12,fontFamily:"'IBM Plex Mono',monospace",color:P.textLight}}>{weight.toFixed(1)}</div>
-        <div style={{width:55,textAlign:"right",fontSize:isL0?16:14,fontFamily:"'IBM Plex Mono',monospace",
-          fontWeight:isL0?700:500,color:rate===null?P.textLight:rate>=0?P.red:P.green}}>
-          {rate!==null?rate.toFixed(1):"–"}
-        </div>
-        <div style={{width:100,height:14,position:"relative",marginLeft:10}}>
-          <div style={{position:"absolute",left:"50%",top:0,bottom:0,width:1,background:P.border}}/>
-          {rate!==null&&rate>=0&&<div style={{position:"absolute",left:"50%",top:0,bottom:0,width:barW+"%",background:"rgba(220,38,38,0.15)",borderRadius:3}}/>}
-          {rate!==null&&rate<0&&<div style={{position:"absolute",right:"50%",top:0,bottom:0,width:barW+"%",background:"rgba(22,163,74,0.15)",borderRadius:3}}/>}
-        </div>
-      </div>
-      {open&&children.map(c=><Row key={c.idx} item={c.item} mi={mi} depth={depth+1} allData={allData} idx={c.idx}/>)}
-    </div>
-  );
-}
-
-function App(){
-  const[country,setCountry]=useState("Australia");
-  const[mi,setMi]=useState(6);
-  const[mob,setMob]=useState(window.innerWidth<768);
-  useEffect(()=>{const h=()=>setMob(window.innerWidth<768);window.addEventListener("resize",h);return()=>window.removeEventListener("resize",h);},[]);
-
-  var data=D[country]||[];
-  var headline=data[0];
-  var headlineRate=headline?headline[3][mi]:null;
-
-  return(
-    <div style={{background:P.bg,fontFamily:"'Libre Franklin',sans-serif",color:P.text,minHeight:"100vh"}}>
-      <style>{`@import url('https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;500;600;700&family=IBM+Plex+Mono:wght@300;400;500&display=swap');*{margin:0;padding:0;box-sizing:border-box;}::-webkit-scrollbar{width:4px;}::-webkit-scrollbar-thumb{background:${P.accent};border-radius:10px;}body{-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none;-webkit-touch-callout:none;}`}</style>
-
-      <div style={{background:P.navy,padding:mob?"14px 16px":"18px 28px",display:"flex",flexDirection:mob?"column":"row",justifyContent:"space-between",alignItems:mob?"stretch":"center",gap:mob?12:0}}>
-        <div>
-          <div style={{fontSize:mob?20:26,fontWeight:700,color:"#fff",letterSpacing:"-0.02em"}}>GGIM</div>
-          <div style={{fontSize:11,color:P.accent,fontFamily:"'IBM Plex Mono',monospace",letterSpacing:"0.08em"}}>CPI BASKET DETAIL</div>
-        </div>
-        <select value={country} onChange={e=>setCountry(e.target.value)} style={{
-          padding:"8px 14px",borderRadius:8,border:"1px solid rgba(255,255,255,0.2)",
-          background:"rgba(255,255,255,0.1)",color:"#fff",fontFamily:"'IBM Plex Mono',monospace",
-          fontSize:13,cursor:"pointer",appearance:"auto",
-        }}>
-          {COUNTRIES.map(c=><option key={c} value={c} style={{color:"#333"}}>{c}</option>)}
-        </select>
-      </div>
-
-      <div style={{padding:mob?"14px 12px":"20px 28px"}}>
-        {/* Month selector */}
-        <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:16,flexWrap:"wrap"}}>
-          <span style={{fontSize:13,fontWeight:600,color:P.text}}>Month:</span>
-          <div style={{display:"flex",gap:mob?3:4}}>
-            {MONTHS.map((m,i)=>(
-              <button key={m} onClick={()=>setMi(i)} style={{
-                padding:mob?"6px 10px":"7px 16px",borderRadius:7,
-                border:i===mi?"2px solid "+P.navy:"1px solid "+P.border,
-                background:i===mi?P.navy:P.card,
-                color:i===mi?"#fff":P.textMid,
-                fontFamily:"'IBM Plex Mono',monospace",fontSize:mob?11:13,
-                fontWeight:i===mi?700:400,cursor:"pointer",transition:"all 0.15s",
-              }}>{m}</button>
-            ))}
-          </div>
-        </div>
-
-        {/* Headline */}
-        <div style={{display:"flex",gap:14,alignItems:"baseline",marginBottom:18,padding:"0 4px"}}>
-          <div style={{fontSize:mob?36:44,fontWeight:700,color:P.navy,fontFamily:"'IBM Plex Mono',monospace"}}>
-            {headlineRate!==null?headlineRate.toFixed(1):"–"}%
-          </div>
-          <div>
-            <div style={{fontSize:13,color:P.textLight}}>Headline CPI (YoY)</div>
-            <div style={{fontSize:12,color:P.textMid,fontFamily:"'IBM Plex Mono',monospace"}}>{MONTHS[mi]} 2026 · {country}</div>
-          </div>
-        </div>
-
-        {/* Table */}
-        <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,overflow:"hidden"}}>
-          <div style={{display:"flex",padding:"8px 14px",background:P.gridLine,borderBottom:"1px solid "+P.border}}>
-            <span style={{flex:1,fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.06em"}}>Category</span>
-            <span style={{width:65,textAlign:"right",fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.06em"}}>Weight</span>
-            <span style={{width:55,textAlign:"right",fontSize:11,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",textTransform:"uppercase",letterSpacing:"0.06em"}}>YoY %</span>
-            <span style={{width:100,textAlign:"center",marginLeft:10,fontSize:9,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>← deflation | inflation →</span>
-          </div>
-          {data.length>0&&<Row item={data[0]} mi={mi} depth={0} allData={data} idx={0}/>}
-        </div>
-
-        <div style={{fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace",marginTop:16,textAlign:"center"}}>
-          Source: ABS CPI · Saltmarsh Economics © 2026
-        </div>
-      </div>
-    </div>
-  );
-}
-
-ReactDOM.createRoot(document.getElementById('root')).render(<App/>);
-} catch(e) {
-  document.getElementById('root').textContent = 'CATCH: ' + e.message;
-}
-</script>
-</body>
-</html>
+q²àbâ°.˜y@¶ ƒJ¼ji¶Â´‚±^Ò3K1cKºTeQG>øBeA'ì,©ÂØ‘!Àµ¨7%Ìã¶ú2½y®JGî<œÞ
+á¤ÂV¡¬+‹ Ê‘
+Ç'*{ÖÎo æ6kùT–Z(ë2QVL¼ý3øU5©ÚáPí¬xÌlÐDÌØÐ!`õ@`H°÷¢«`K®…Èyñbw´ßÂÅ·ëmù¦]·P	¿Ä:ðG„„
+úž‘fU‰À6?~™`ß’›0ÞÄ»ä-M˜TŠÐ
+°+*:ÎŒœ,Þ0P…XôRöd<)	¢ Ë„Z•h•´®HQC1ü2¢=RzÆV‹cì8ŠEÜÒÉ 3"ÚÍš+^lÝ¬n_1ŒB°
+ÚŒƒ1¥ëÓ1®…À(*‹µKøÉ ¤âÄ	£¬LLTP€ÒŠÙˆcXÅ=®‚°PTœÂÂ~¶ÿ2
+Žf‰Ð¼BÌ,{ ø—$®y Á•Ã¢/ò@@j‹%´–:ÄXÀ7ÒÆà“@¼‘,K‹	ô„öá5n	´(h‰Zœ:ÀÇ1{qÒE&žr>’wÝ¼ó1êEOiQfYˆ}Ø¹È32Þ?x•ô¥sŠÏ( ³(fÒš0~„öc8zS“z)õ§ŒÃá¶!D*U˜EØ)Â•8-C’°¸|<ŒÌôYYFP£ô±¡‘5
+ŒGhL°,ÔIlM`÷àÑmªÁ~Õ˜ŠÈAÀ@Šýñé„£-cŠK2Î.	X1ØÙÚÀÖËØÞÆñ™±š¡“˜¢È¬x˜dRLnÒ†öøv±ƒ¸IØ )S'ÊAáà~x¸±²0a`âÈí-]¨µFÔœÚAààˆC‚Fa…]4
+Á¢E˜ƒšÀœ›„­ø˜qA;Y
+ã>‹¯EŸÁ³'c6d )‚Õ ¼Nf\dù¶ë\ V.øÆ!u–ñÌqxÞÌÎîâ™Ÿ© ÅêçÜÀë»½*T3P@ …T[¡ö*1¤]}RŠ>k‚g6
+ÚOÜU°Q{ûvT	ŸáWÑó4b&L@+Ä¸k€ÇØdŽÀFÃÛNOvW66á¦!‚”“«¸|‰óù8-xMë@®\ÆŽö_ú@yábæœGMUp+"½dß®ŠD»t
+b(ÙIÃ<@z=*+
+<¡¥¸F‰cìÙ#C çl¤ŠºXQv“KvJéX>Âu)u˜d¦˜ö9ßÄ»S3G2\P´¹·Šê‰
+*GMFÓÒ‰%
+0LýPô4·Nx§ÅqÊ 4•³Ã_ZãüÐ
+sŒqx‘gKe°³8šláä‹Ë]¿u8¯Nj
+àÎ…#…Ø8À+ÔÂÄ,IæÀ›&L”àM–xµ³¼›&z"-î™*ÉÃ 9¡Ì*SjŽŒ	2’Í¤`Ô6	[¨1–O£YôŽb7
+¦WvLÇp)£Ò#UˆnÆq¬X“aSl8æ¡«¡Lã-ö¦•¢Í*j7+¿Òº¹Œá–ÑYÔ Ã$ã8öÏ)‰ÙÑÏ¸…6×âzýb#|¦yLˆaB:©
+ÿ
+Š·¨u°:†×@tœš¢cìHC–J¢¾9éÖ›é0yV"mÁvwÉ…Ð“l
+Iå$\„OqÈüpÖU*¯…,ú¿zoêÏOM‰£ÈRñ†pL:·¡)Ë ãRH&ûõX„)à…Zô•Y³ˆü§»á4L¨<I¤<{òàáGŠùý0fÐ›ÝUôH”ìJŽÌ,ž—ª{ð1¸ntEÓ|vkšçvÅ›ìý¼ì)=E”fdA£e<V-&Ùh/#ªÓPïrÂ/¥É²Z:hÙR‹,üºÌ&nÇ¼óµq¶
+\o¬LÅDT
+ê‰'aü8¢¿Œš3cêœ46ƒPÿËD`ð&LsÐÍáxôæÉa2¬LXe÷»ôt ™PNÃr¡œ$3 3Ëp™Iy‹rÝ¥¼!{¨¥YÌyÒ­.Úí[gúj²øÏ~ØÛIŸ€÷ØAO—¼š‚d ÒŸÎË¯ŒOå(ŽåH|VRåTœ&L‘a‚ã(LY¬èæâ•Ä+>ÜNQDÌ SDžj«Á>¶á*¥(æÙ^¼0¼òaVDUZ<`Ý:_ÈªšC,òÁ&ñT&’Ü1ü"1ƒn&¡‚	Ã€4€yI’Œð îK(D0„ÈÔçÛÏƒÄÜËÐ=Œžßw7L¾rÂçøJ^e#°v±œÞ0ªCØx…à
+ÇMrgiœA4wæ‘jâƒÅA- ŒF¡™l§ñÂÃ–gé³¯«’ÏaÆl 
+•yW”Há2Ñ«ÀGÄÌ]æ"î
+”6R ›©Ò[O ŸDb/‚ã76«xŒÁ!
+ºW<Ñ…‚8òAÚ`ñLÈaÄ>®“¹L°çsž2«OP¡°I³æ†R˜|`ÚJ6Ô×A•+\/%‚–ƒždà&¸·˜"#„àb¨+1rÀ†˜'Ä
+¡­­KL*ïó„QBfDISo#þË4
+Ij¥o]F·)d0"'íÉ¬+î†F<œú*‰‘)=ˆA]&šâB
+‡µS`j·¥!Ï>§„oØhBrj¢	DEš `#Žü•áðÚèq†;dt,ÏJ¸J9ûpÃLçb@×Ûw­_|c¸j82ËAFá–¢L¸Ý1[ÊU@äÂ2!šçž§©Áp!±«ƒåiPúà‰ÆÜN©¸a8ÊXd¸4à¢¥³$ˆ‰ç‹Œz| É1´†Ð[7õƒ@rßTJ( dq¬8Ê“1ê
+AÇLKZ/™Â“…”Œáâ¬ÊŒLæ?˜+¥§¹
+ñui0×¥	çÉ(fÀ÷=÷Æ2¼'(¦y0•	[Îy–
+i¦ÈE_x
+œ4Ç0^H3P&jÈÌ„ˆ/„Ó„-ó>î·VöÆö*p	6säÁÌ™ÄÐî{öK‡*¥ã":˜Ç8·ªYYôþ9(ˆÓÆÉ	LBµs!^Á'èSx\ÞÈ³mÈC¼f‡L<ÐQ%,táÊãy’ƒ÷y-!Ç½€Å*MÄ€=‘8H…BD$Ëu…U¾y
+»¶UxÏƒshïj(n}H³¸Žó«8IIÓèµQâ,—B’al’ÇÁ°Ì–ÎØ
+½o¬:_ÆeCß.Xðç842ˆÜ^˜ŠÍ7G¤¯qÙ·V/‹ð.*6¿u\W‚u~Y«¤ùlÄ>âŸ“Çnçß°±ƒgGiLÃ,Ý,á9‹¢Ö ‘+JþETT„+qr;Ò'9‘ÁY^QaQÁÜÅmø‹à„õ°ˆõÐá‰HÁä‘	Ù© Éà>©ùÐ=dÒ6¢âH=‘©g`¾>Bc¹¾jßŽ^u›ËÓåbæòY]Ã@;öúr.[=Pòà%-ÂÊŒi°'`.‡ÎÎK{ÅÁŽ¾Øe€Ææt¿Ÿ×PÜAðsÐ·L`‰ƒ©i@ˆå
+ÅpŒ¸qRµÇvîp¬'[Ó•hVþ«Ë¥òj}ÒÓ/OÇI½9ò‘<,IMmx2ór 
+‘¹rßªw.fÈ!èY|‚G!çþÉdZÿÄ±`Ì”˜ïfe†š\g˜—¥Õˆˆ‚¨Å&?lcöÂë~q aY1
+b~a/•zóEMéï.ˆ4·¥
+	-lÔ¨²)íåöDm?R{G<·é‹…¥ÎýâóÝÀLêd8’áFÑ$neÐ£ èë ÒPöKgÎVGšD%DÛT^¾]·}/Ç0ƒ€•Lrßˆa­x$}á2”ðÁQYœ~	8‘)«y‚x,TÂ‹Åæ!»ÔO…ÐS<ö–qì6ç´y%Œ§1N…a+ŽŒ@„ò&=|•piq²9X&ç9-/0}%ñ&O˜¢z
+)ÓçaÚ× Ü³˜…œ}A2üôŽ«Èªë sàÁvNonÑ¶à^©$Á‘ÙìÜeíAÍA
+”Ë6æ¢ärDÐ*Ù$È%|cMëÇì¾S¡_Ž$›$éð3³KBÒíŒõ
+@¥)¤)Ž£b$©B>Šö{¼š†ûÚÐ^àlƒ|™õiPƒr‘Bi>\¹Ä8|±*¨Wi_Š®ã±Œ 	¢O&¥àFN]³ ò|ÑŸ_¶«ÏŒöÓnœ~† }Þ³†<T‘%œ-´
+±OùàÇššh¼éY)ßÅõsV2	è\9 9²ŠìŸ*ÔˆÌl0%z‰…„”Rø9ÒL€|@øŠSz`Z+ÅCêÈzËÑÒTÓ$ì£—‹ü`©tð8@­†›Tg âÈøR:ï Nð/ ‰xH ð¼./-Ã,“eZ^
+URiöà	ÕAj8™„É‡Vsè¯f` ŽýW t°f&È‡õHO"ûY
+fÎ.ÊƒYÓ†}zM%# Èpëè¸l+’:õ¦ñ®w\ó¹Ü‰¼[yÃÚD|¦K†B½¾£C)‚A–d ›¥y~Œu06ÁÔƒ˜Èü¸Ÿ“¹1ÌëÐk:@W2Á”C¸8¤YH¼ü'”xv—:™E„pRp˜—™¾uuX®€£zýúHHvÃÒhE08a¤Këœ’"Åê!«ƒµ,ˆ%WÏ…WV.ÂÈ
+³³•çá†‘ve™Èë5ð+’©ŠìNã2dÜK|*$ž=¸¼ÊNÄ2Ùó¬„ptGÇ¤q 'ùpØG(*Ö‚c;/Ç1"%ËàÀ ¶Ê54b"+“ßn'
+ÇÉ‡ì—ç0:¼½GŠøŸðpoÃæP-
+ÓI'l”)ßž
+gÞ%›†ÿòájÊ±/(e%
+'ÂGŠEó0/ú¬[?,°b`lz¹‚ÒóÁ++0Öf‰Ôþ8âsøË
+Ò;‚òþèêŸ·ý•ƒ¬`Xº¹¿å˜³`O®Â/M¨ð?Ë)²={{rã˜–sö÷è°4Zí´8KÐB¿ý™yÔ­b /(ç0·n!ƒ"œ(¼2Y…Û”!y°Zùd[OD``VAˆUíã°F€ì…G¶vXasÊ’£÷3|EÛˆjAB@J Mî#ÒO!]¯ð
+ Éb_Œú"Ê=´Q×å5´-v/ÊUÒT¬œòÓ™¾qÑBX"?Œq¾M‚’ËIðªR2úEöBƒ¹ƒ2
+x
+ã¿\±“ÿÚŽŽà€)ZÊhAn/¢C`Ó+E«¼_±Þ+K+¡;qOÃz'´
+ÏvHçæÊs©ßËìž"‚L$/eÐßÀ‘ûÌG ýˆ´à%ŽC"¡¶
+I™bzSpì>ÝõkOMüE‚uùbú …Ñ¤¾ZK&ÆPŒÊu¸”#
+ûØ<Åðø¥‚¡º
+‰†e]S’žÃÇÁ¹
+M‘ä¡;4éÉÙ-ážE™a`*¢ÆèCˆJtð;tT^µÚÏKX!al°‰`¿F.œÓ	½8 Ÿôexlö /2G]f¤Ò2wiG‚°1V0‰L‘# Î;`r @D¹‚+¯ùÆ”š0Âd	,Ýäª¬r‰k9Óª×jB&Ìµl=-#äˆã¼–‰¥[8Í:Ðþ¨5aÑJŽoHÏ)Ý¤éŒ©XÏ=‚(<ÜCZ%Fç¤ì(?VÏ))q¿Ó®rZ”÷åxÂi[)éþf[S7ÃOPLäre0ï”Á_†J]ìhÊã›íåÎi92]!ðm	ƒ9D”QF?!œbŸž/3Tá£âE	âÞj0öä3fš¼‚ nÙJ£ä—šä%¬·ÄøŒgÍ„ˆ0_ÍI¤Ùý»•Tõ‘ÍäUt*’K¼X±>›œl.ÜGœÝ‚±=yŠu¼ô /•HÚ= ýÀNâ ¾Ôh8mn€¯9á+4øyÔ„óË"0Ö^ý”)˜[àÃå‡å,‚#&GQZ[NÕ²ÇV.™#—4MCÉA&“ê)®þ(v¬#Û2¢®ò¹/¿íT3ÊðRŠ0ÁJc!LÃj`YÈÂ¯68… žÂ[y
+à)/þ’àõxÙð;¤å:<¬As
+ë2À_L`80…#/£ÀYMž_¾ï.N×—Û7Qü¡a}gPðd£öfbôÔûÙ2pTl8ã>eª[˜3bY¬4ÔM`©®Ax´w-F–w^Ø˜ãQU„ XÂœ€M @I´™Jò·-äoRT	“2þÝ
+,ÑÂt^’c™ç  S.t'—oaK¢X£«æ„]ÊÔS27‹`S¹Â tåÀŽ']ºeü!£GØ¥©-ÄƒÉP À¸tåÁÃKgpgÈl€Z”U‰käRlÒj€HW,SY^yÝ—<znV/KÆ°£t‚Ø
+ø-yyaŠ†%«¼Ä«öüë*Á{Ë@âõÿ,€šÌ€ü{m0C"P@Œ@¦»Žö¹g*!ÀØ¥ÊA¯Á‘€‰W>ðÄdÆM²6^´Ëž—1–«„p²-Kr OŽzèH2ò<
+Ü z8ôrÂå´QRIèÆ¶N¤o™†Ù÷T6»ÝøWdøQl]PBÆÓ‰tÍ Lòîh,ÅÆr‹$i)×üÖb;.¯‡ @d_>¨¡\ZBþ‰üåDöçÆËŸÉ¨3~öwÂÚÂù%låFoJß+Æ[:Ø—Qê…8'·db«çmsä¬­Òt™
+1ÌÅˆëeü‡I	ð5s4{œPŒþ”9“Jl2€±ål3gU”ÃJgº@:m6ÐÇ•p&è ÒøÝZDDÁ½'C%e—IÚû²Î¤÷j¸¤&Ââ Cß»HÕY÷ËÒnûøíãÚ ?Ì:ÂÏ"‘KÒ§\œ2Œú+Ìa¤ÕUžuÅ	ÌÔ9=Àƒ/ð'³·“Ìk§ê qÆwÆ_*±.¬o¼$[:ñ¶€„ˆå‰üñwU•'üC9Óû´œZüôe"¯rúm j‘‡uÍJ²°õ A¥°Ê¢­ðÃ™FÁ˜‹)Ã%"~mÊÍÉ½ÙzµëG¿™¾<ýK7ë'o»»ƒÇO'»õ¶?8<¹wïªÝŽ¾^¯Ú«Çãß«6+‹ù89}c¾œÕgíÙlœÌÚíÜ~=;3'ÖÛy·5ß:ÝÕgé8é»÷½½±ÓMvê¿¾XØËóª(ÊÆy¾xsn¯jò6;­ÇÉ›íbþ|±êl©ê¬83—m;{Ó|¦K]Ú
+ºne‹-Û,oÇI;›u+WB6+Îæcóh¶á_>ùê»é÷ãßë¢Ì:S?Á7›cMU¥îX5ËÚnn÷ÒºQ§ÚîvJg3»Wç³™r×•YYž)»wÖT™9öÃÉ½³ËÕ¬_¬W£7W ³dqxm›p5}üäûÙ'‹³ƒß]n»þr»ÙñubÏn§Wß/~8	‡·ÓéÔžúÌ~oÚí®ûj¹nûƒíáÉ
+ÿø¼Ýö¯›ƒÍv½ÙùjZsêª›º#ÿ%Ù´ÌÝóp0|K–íi·ÇÜ¾kš¿åoû]¸Œ÷&Ënõ¦?šö_uæ¶ÉlÛµ}÷tÙ]˜Wp0ž/®ÆÉõ®ÿ°ìŽ¯OÛÙÛ7Ûõåê–€¨ÍûÑn½\ÌG$*þÔ«v¾¸Ü×¦ùóùbeM¥æZ•oÞ“³õªÿnñ×îXi·ÿU{±XÁ¼X¯Ö»M;ël)ï¿;oçëwÇãt”Û;µùØ¾9m%.º>ßÜ$?Ý|[ÅŸ:'œeš&íöÍbõåºï×Çy2[/×Ûão'vl˜â\g¢×'g‹eßmðÖ6‡×¡Û6“«vyÙýÎ½ë›0Öèº69¥+Oý•G­ÿo®½h7¢H+d?ý.Ì >^$á‘æ‹ÝfÙš.;[v¦CÛåâÍêYß]ìŽÇvu[3¸ÚÍqöõzs¬ïê+Óã+î¬w‹ynÞÛ¹ï°:~Ÿã"ýÄ¼–‡ÍÄõ_B
+Z¬–fÈ.×³·æõ~Lþ0pØ‡:V¦½›É¼íÛë>|T1ƒ÷ìK
+¯éÑ4ýŒPƒ!ÇÕá.˜ôë¯ï»ù:ütüÉøÐŒU»ÝãûÅfspx}o4²#u·^îºïzÓšƒñl}a†y7>LúötºÛ~Ÿþìºþµÿ¢¨„›v|Ó÷øb÷ug0?`žŒÿµuÏ5ü¥âM©KðÝ|ºÛ…J¾GDM3Ñ¼¸"Sˆ)oÙ=6ï¯ß~˜îf(ixXwÁÅ=y°äH&Ûvõö…éöóéî"óJ’E¬O¹w‹•Û“ÅjÕmÿd%îaUÖ‡‰½Æ^Šz¯¾s÷Ó³3ó´<v<lžOÅß5Üœ„ã•ž^z¾Øõ¹ä`¼ív’ÆÉù!€QîÚvë«îÎoNn’ï°ó­æ OŒÛGaî6Ý²™šGü¬<ÎÜ\Òn·Óï89[oì×Å4=Y<¤>?Y|:µ·ø›·ëwÓk3Bºã'¯Í4Ù-³ÎàceZI™˜’ž¶³s®xfÐfýÎÌfÓ0ÃI?1ÕN6—»ósÊ=`ŽÚGBYöýØÇ
+oÔÉË¯òpÔšýOgÄÎ5­$Ù<ÉÍí¦GWDí·²{WëC!¿‰¡z†3²\‰Ç3jËŒ ƒ„Ã[SÇœŠOìM¿ó4áä'æ{©™:ì?û¢Ì3Q=AÔ¡úõ~XÛXÃ	HŒwï_ž™Ã
+Ý0tð5Ã&¿§v¼7­9Dì–»n$
+ö/ïayG™†œÎù1òfï¾±
+öe˜½Ñè¡™ÝFÀ§×’h|;9}‘ƒûÏ§Ûndù­™bî'»vµ;ÚuÛ…á#˜Ä-
+M.«?úiÀŽôêÜ ü#W—©ÍÕôèzüùâbc:}t¹]Ü?ïûÍîøÁ[Ýnòf½6½Øn;Óö‹ ³ÝNvæ1uMøM8~gêø<KÓ“Ül…ÙÌ´sR¥éÂåÏ¾|ñé·f.ûÔ¼­õ­«ÿæÌéî]»¹xò/×~²>NO@šÒÃƒŽ¼Ø/~">2GNnŽÞu§oýÑn¶]/—§í6ÌÜ†+í=}ÔŸ_^œÊ,û$”»õ3¼¥i'7ã›‡|WÝCÏÝùž,q"šgGûX9ÂVªgÞ@möumiß€´ØÏ'‹mçDÍßh^ãåÅÊÜePhœüår×/Î><6oÅ©Žvý;£6D¤ÇÝ¼ë\ÍÎÇ1²§Tzœ²øgy=1R{¹ÖÇºN›¨ˆMú»ìzSÁw¦=ŽÚZ}XwVÎ¾þúÙ‹‡î._)’U¯íÄ2n$fd%fd%æ~"ñ JKCÏ_~ùÅóÑ³o¾zþÅëg/¿½xùÍ³×/_…V¸ÏèÉ©Qƒ÷ÞÊ
+m´Gþ´5 ÆïÌçXvÞhtýýµÕýÀz<e>?ßowÚ#¯8ëP	gí¢s–2˜«Ç7?ÄpÛ~Díæ!N/
+w_#ž^÷“Åüf´^=6³ÃÛéuL;°ÞÜÐSG’ZC'	ú‰vúÉ@…	ÊŽåvÓ©-î³±&½gü)Þä±8ê]	¶t¢#â,JãzÓ-;Û‰«˜]ôw'ƒ)7‘d+u¬ò[’}¹ÝYÑÞ¬~Ø8úí.·t~Ñ/Ú¥Wð¿°#Ž†—
+Óûî´ðïDŠ‰å7,yRÃ—}Ð² H´{?:Xi¤r¯} ‘4þá #‘”i*7eÝ1P³d¯>9FS›RüÄ7ò¼`ÑíF —3!ÊÃãÁü©q8{n\Úv^ïa#ŽEí^®¦û§yGºf‹}gOö¬ÁØšíXCš±gpÝ‹Ko
+¦2‘Hø‘"|ÛØ0þôÀ>õgÞ2ôýlñ‰ß
+\ä ËÜM‡rÈýø-ûŸ»Ã·ðâ_,æR.ÜF8Žó=É¾³ÙÞ¡Ç-Á¸}àÎY×šëâ¾UzoO¡+„%¦Æôãú :~S±ì;3ßÇ¾;{ÃkÛ±†ó_/7›n;kwû&4eæ³x\iÓ¾?>ýâÉógß<=þöÙO
+$nqùñƒ×aÀŸ×=[-[Ç£>9LF:M‹üýéT—ûê}Õí6ëÕnqÕY~Ò.Œ*8rljIç'ã‘7 L¯£¨Óã¬N ½mJ±æQgYC‡q¬1`zlNå²]}½5¯Òð›õ[sjg®ßÚ8ÎFÙ8^;¹õæÁ£‡ÿñÅûÅnŒ'Ó±Õ¢Æ£Þ
+ä˜ëÔöíÚ¿ü/×ŒûÖTcë4øÐ½àÆÕpCáª]úŽ0PeÛ÷g×¾aƒ~å¦Ø_1l­à	D»"-çÊš~nl_ugA‚YgK,LoDWû…#Î¼0½Vö¾×ëõ²_lÌ<àHëôf^srðòÍÜE¸ãº0:	!4î?lº©3“@1o/ØžCëÀ
+ñmÐX}3š¯{êÓÜ•iÉ7FÝ=xMÜ@&ÕÁ@x°g$|üdg'7\l¦´20˜ ‡z€à?ÙŽPÿÝÑˆ»Ì§ÅxË´7XG³µœmîzVJ¬ÝòGu9Õ|Œôû‰ÆÿGÍ/áÒ›Ûl*÷Ÿ"SÙ*Ý¹wuÂò.s_àÇáqcIóò0rÝéudüq\æ¼]½éÄÐï¼ÑB^wÐMzÓØ®÷vá½ì†Ô†;T…ýð?ËØMWDÓÖíùã¸Óf5z¸Þ¸é
+£!ôÒ,H?ûÈ
+ŽïÈå&×CsßÒÚ—{oÔbŸ°Ÿ,,']Á©¶Ç„gýXWÁ4vxŠf@oo»º99ÝvíÛ“Øûü•Ÿü$Øä‘˜ž.bæ¡ê;;eåq~[rïÊ·Ã™ë¬ÏáÛ‰uyÚÉ¹ëVÿÄpÅÏÄÍ'l[¸[o¹EÖ,êÚ¹}NK£F †îþ¨•Bÿ$
+M·¯ìfô_ÿg4†Ò. è8ØA¢iç7îûÿ†ûaòÿÏÑÿ>Ì>†ßèðÿotØSÛ»(íxë^R¨„B?,vRÜÍcG«öâ	0Õþl&ûÑìÉ75îôãÆYK‚~±r.¥ý´j±Ú\öáUm-….+'íûéµ˜ã‰V—êGˆùŠ\˜Ì³U?d_’~ù° Óïÿä]{m.>®7ò»zÃ¹3>áM'ø¦TÖ¿`ºAøænn÷ä¯jÞY_uÛ³¥
+˜9_ÌíYþè7¾}ÌV6 `šdqoC†Õ_×¡²4ùï˜cMe¿ß'±·Þ»_wZgåäcšäû¡,¤e}kÛ1þõ›i§÷O>¾‘nfL¦{Ü žžwg6ZˆšÞü’w:ï@=þffÌ°¿™n3‘køõc5hŽP¾Óvû§é‹¶?Ÿ˜Ñ{àvÚÓÝ÷É>PÅ¿iR¤wÈÉž`]Û2ý˜N#­èSé¤ˆFñ˜[ãê#F–þ%oázñ©Úƒb5¾¢É¦¸=ÙˆÞû¸>j¸Üõ+¾qóýZ›oíP»³Õ·íEbø»‘ièf½[8Ç÷Ø®mÃ6ã‘´ïu]eT„àõò²wš…¹ÙGéõëÍqj„Ë‰UšÛUŒë€ì=ÆI3’¸C~q½vÔY6)«{/©é–¬¶F
+* &•Ì¶íø'«ßúpŸW¢Ê,©ò»ëC÷âÎÞƒ‡SêORÈÿ~-T˜VËý^ÜïÖ—ÛYw<úÆÁl»4õ›½Ñv£õÙÙbÖí’ÑÓËíÚ·ýwí²7ÅîÎGO
+á^_Ø
+ÿën©†â
+ížÜ3ë¢9Ÿ¼|:_­×ýÁ|=»´aÃþB„ç—žÍîoÍÙû‡‡fL®Ì‹9xøÅfóà‘-gÖö³sK%âV×iÁ|<½ÿø‹×ÿx<ºÿi7¹èv»öMwrsÏçÙv±1*ÁÃ §ëù ûÿ¼¿X>º÷PK
+     sq5]            
+         íA    ggim-drop/UT ;±jux
+         PK    sq5]§÷7«04  r½           ¤D   ggim-drop/index.htmlUT ;±jux
+         PK      ª   Â4    
