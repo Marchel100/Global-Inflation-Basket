@@ -127,12 +127,40 @@ function App(){
   var ss=useState(["United States","Germany","Japan","France"]),selected=ss[0],setSelected=ss[1];
   var sc=useState("United States"),singleCountry=sc[0],setSingleCountry=sc[1];
   var sm=useState(DT.length-1),rankMonth=sm[0],setRankMonth=sm[1];
+  var src=useState("Headline"),rankCat=src[0],setRankCat=src[1];
   var smob=useState(window.innerWidth<768),mob=smob[0],setMob=smob[1];
   useEffect(function(){var h=function(){setMob(window.innerWidth<768)};window.addEventListener("resize",h);return function(){window.removeEventListener("resize",h)};},[]);
 
   var compareData=useMemo(function(){var step=mob?6:3;var arr=[];for(var i=0;i<DT.length;i+=step){var row={date:DT[i]};selected.forEach(function(c){row[c]=gv(c,i);});arr.push(row);}return arr;},[selected,mob]);
   var singleData=useMemo(function(){var step=mob?6:3;var arr=[];for(var i=0;i<DT.length;i+=step){arr.push({date:DT[i],rate:gv(singleCountry,i)});}return arr;},[singleCountry,mob]);
-  var rankData=useMemo(function(){return CN.map(function(c){return{country:c,rate:gv(c,rankMonth)};}).filter(function(d){return d.rate!==null;}).sort(function(a,b){return b.rate-a.rate;});},[rankMonth]);
+  var rankData=useMemo(function(){
+    if(rankCat==="Headline"){
+      return CN.map(function(c){return{country:c,rate:gv(c,rankMonth)};}).filter(function(d){return d.rate!==null;}).sort(function(a,b){return b.rate-a.rate;});
+    }else{
+      var ci=CATS.indexOf(rankCat);
+      var rm=DT[rankMonth];
+      return CN.map(function(c){
+        var cb=CB[c];
+        if(!cb)return{country:c,rate:null};
+        var ms=Object.keys(cb).sort();
+        var closest=null;
+        for(var i=ms.length-1;i>=0;i--){if(ms[i]<=rm){closest=ms[i];break;}}
+        if(!closest)return{country:c,rate:null};
+        var v=cb[closest][ci];
+        return{country:c,rate:v};
+      }).filter(function(d){return d.rate!==null;}).sort(function(a,b){return b.rate-a.rate;});
+    }
+  },[rankMonth,rankCat]);
+
+  var globalRate=useMemo(function(){
+    var num=0,den=0;
+    CN.forEach(function(c){
+      var r=gv(c,rankMonth);
+      var w=POP[c]||0;
+      if(r!==null&&w>0){num+=r*w;den+=w;}
+    });
+    return den>0?num/den:null;
+  },[rankMonth]);
 
   var latestRate=null;var latestDate=null;
   for(var li=DT.length-1;li>=0;li--){var lv=gv(singleCountry,li);if(lv!==null){latestRate=lv;latestDate=DT[li];break;}}
@@ -195,6 +223,17 @@ function App(){
             <input type="range" min={0} max={DT.length-1} value={rankMonth} onChange={function(e){setRankMonth(parseInt(e.target.value))}} style={{flex:1,maxWidth:400}}/>
             <span style={{fontSize:14,fontWeight:600,color:P.navy,fontFamily:"'IBM Plex Mono',monospace"}}>{DT[rankMonth]}</span>
           </div>
+          <div style={{display:"flex",alignItems:"center",gap:10,marginBottom:14,flexWrap:"wrap"}}>
+            <span style={{fontSize:13,fontWeight:600,color:P.text}}>Category:</span>
+            <select value={rankCat} onChange={function(e){setRankCat(e.target.value)}} style={{padding:"6px 12px",borderRadius:8,border:"1px solid "+P.border,fontFamily:"'IBM Plex Mono',monospace",fontSize:12,color:P.text,background:P.card}}>
+              <option value="Headline">Headline (all items)</option>
+              {CATS.map(function(c){return <option key={c} value={c}>{c}</option>;})}
+            </select>
+          </div>
+          {globalRate!==null&&rankCat==="Headline"&&(<div style={{display:"flex",gap:14,alignItems:"baseline",marginBottom:18}}>
+            <div style={{fontSize:mob?28:36,fontWeight:700,color:globalRate>=0?P.red:P.green,fontFamily:"'IBM Plex Mono',monospace"}}>{globalRate.toFixed(1)}%</div>
+            <div><div style={{fontSize:13,color:P.textLight}}>DM Population-Weighted Average</div><div style={{fontSize:12,color:P.textMid,fontFamily:"'IBM Plex Mono',monospace"}}>{DT[rankMonth]}</div></div>
+          </div>)}
           <div style={{background:P.card,borderRadius:12,border:"1px solid "+P.border,overflow:"hidden"}}>
             <div style={{display:"flex",padding:"8px 14px",background:P.gridLine,borderBottom:"1px solid "+P.border}}>
               <span style={{width:30,fontSize:10,color:P.textLight,fontFamily:"'IBM Plex Mono',monospace"}}>#</span>
